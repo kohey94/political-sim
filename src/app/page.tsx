@@ -3,6 +3,8 @@
 
 import React, { useEffect, useState } from "react";
 import GenreSelector from "@/components/GenreSelector";
+import PolicyCard from "@/components/PolicyCard";
+import { DisplayPolicyCard } from "@/components/PolicyCard";
 
 type Genre = {
   genre_id: number;
@@ -23,6 +25,22 @@ const genres: Genre[] = [
   { genre_id: 4, genre: "環境" },
   { genre_id: 5, genre: "人権" },
 ];
+
+const exampleCard: DisplayPolicyCard = {
+  card_id: 1,
+  title: "カード名",
+  description: "これは説明テキストです。",
+  genre_id: 5,
+  feasibility: 4,
+  stance_points: {
+    conservative: 4,
+    liberal: 0,
+    economic: 1,
+    welfare: 0,
+    environment: 1,
+    neutral: 2,
+  },
+};
 
 const HomePage = () => {
   const [selectedGenreId, setSelectedGenreId] = useState<number | null>(null);
@@ -61,6 +79,9 @@ const HomePage = () => {
           </div>
         </div>
       )}
+      <div className="p-8">
+        <PolicyCard card={exampleCard} />
+      </div>
     </div>
   );
 };

@@ -25,3 +25,19 @@ export type PoliticalStance = {
   name: string;
   description: string;
 };
+
+export type DisplayPolicyCard = {
+  card_id: number;
+  title: string;
+  description: string;
+  genre_id: number;
+  feasibility: number;
+  stance_points: {
+    conservative: number;
+    liberal: number;
+    economic: number;
+    welfare: number;
+    environment: number;
+    neutral: number;
+  };
+};
