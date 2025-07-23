@@ -217,11 +217,11 @@
     "feasibility": 1,
     "stance_points": [
       { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 2 },
-      { "stance_id": 3, "point": -2 },
-      { "stance_id": 4, "point": 2 },
+      { "stance_id": 2, "point": 0 },
+      { "stance_id": 3, "point": -1 },
+      { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 1 }
+      { "stance_id": 6, "point": 0 }
     ]
   },
   {
@@ -266,10 +266,10 @@
     "stance_points": [
       { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 1 },
-      { "stance_id": 3, "point": -1 },
+      { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 1 }
+      { "stance_id": 6, "point": 0 }
     ]
   },
   {
@@ -343,14 +343,14 @@
     "genre_id": 4,
     "policy_name": "再生可能エネルギー推進",
     "description": "再エネ導入率に法的な義務を課す。",
-    "feasibility": 2,
+    "feasibility": 3,
     "stance_points": [
       { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 0 },
-      { "stance_id": 3, "point": -1 },
+      { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 1 },
-      { "stance_id": 6, "point": 1 }
+      { "stance_id": 6, "point": 0 }
     ]
   },
   {
@@ -394,11 +394,11 @@
     "description": "同性婚を法的に認める。",
     "feasibility": 2,
     "stance_points": [
-      { "stance_id": 1, "point": -2 },
+      { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 2 },
-      { "stance_id": 3, "point": -1 },
+      { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": -1 },
+      { "stance_id": 5, "point": 0 },
       { "stance_id": 6, "point": 1 }
     ]
   },
