@@ -72,7 +72,7 @@ const PolicyCard: React.FC<Props> = ({ card, genreMap, isSelected, onSelect }) =
       {/* イラストエリア */}
       <div className="h-30 border border-gray-300 rounded h-24 flex items-center justify-center text-sm text-gray-500 bg-gray-50">
         <img
-          src={`/image/policy_card/${card.card_id}.png`}
+          src={`/image/policy_card/ex${card.expansion.toString().padStart(2, "0")}-${card.card_id.toString().padStart(3, "0")}.png`}
           alt="イラスト"
           className="object-contain h-full"
         />

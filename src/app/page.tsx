@@ -55,7 +55,7 @@ export default function CardsPage() {
   };
 
   return (
-    <main className="p-6 mb-48">
+    <main className="p-6 mb-70">
       <h1 className="text-xl font-bold mb-4">政策カード一覧</h1>
       <div className="grid grid-cols-6 gap-6">
         {cards.map(card => {
@@ -72,12 +72,15 @@ export default function CardsPage() {
         })}
       </div>
 
-      <SelectedPolicyArea selectedCards={confirmedCards} />
+      <SelectedPolicyArea selectedCards={confirmedCards} genreMap={genreMap} />
 
       <ConfirmDialog
         open={!!pendingCard}
         onCancel={() => setPendingCard(null)}
         onConfirm={confirmSelection}
+        card={pendingCard}
+        genreMap={genreMap}
+        isConfirmButtons={false}
       />
     </main>
   );

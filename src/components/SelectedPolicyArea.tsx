@@ -3,13 +3,16 @@
 import { useEffect, useState } from "react";
 import { PolicyCard as RawPolicyCard, PoliticalStance } from "@/types";
 import MiniPolicyCard from "./MiniPolicyCard";
+import ConfirmDialog from "./ConfirmDialog";
 
 interface Props {
   selectedCards: RawPolicyCard[];
+  genreMap: { [genre_id: string]: string };
 }
 
-export default function SelectedPolicyArea({ selectedCards }: Props) {
+export default function SelectedPolicyArea({ selectedCards, genreMap }: Props) {
   const [stances, setStances] = useState<PoliticalStance[]>([]);
+  const [previewCard, setPreviewCard] = useState<RawPolicyCard | null>(null);
 
   useEffect(() => {
     const load = async () => {
@@ -48,6 +51,9 @@ export default function SelectedPolicyArea({ selectedCards }: Props) {
           <div
             key={i}
             className="w-[96px] h-[128px] border-2 border-dashed rounded flex items-center justify-center"
+            onClick={() => {
+              if (selectedCards[i]) setPreviewCard(selectedCards[i]);
+            }}
           >
             {selectedCards[i] && <MiniPolicyCard card={selectedCards[i]} />}
           </div>
@@ -68,6 +74,14 @@ export default function SelectedPolicyArea({ selectedCards }: Props) {
           {totalPoints.feasibility}
         </div>
       </div>
+
+      <ConfirmDialog
+        open={!!previewCard}
+        onCancel={() => setPreviewCard(null)}
+        card={previewCard}
+        genreMap={genreMap}
+        isConfirmButtons={true}
+      />
     </div>
   );
 }
