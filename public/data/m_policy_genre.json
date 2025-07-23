@@ -1,22 +1,22 @@
 [
   {
     "genre_id": 1,
-    "genre": "統治"
+    "genre_name": "統治"
   },
   {
     "genre_id": 2,
-    "genre": "統治"
+    "genre_name": "経済"
   },
   {
     "genre_id": 3,
-    "genre": "統治"
+    "genre_name": "福祉"
   },
   {
     "genre_id": 4,
-    "genre": "統治"
+    "genre_name": "環境"
   },
   {
     "genre_id": 5,
-    "genre": "統治"
+    "genre_name": "人権"
   }
 ]

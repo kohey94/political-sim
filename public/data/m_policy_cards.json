@@ -12,7 +12,7 @@
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": -1 },
       { "stance_id": 5, "point": -2 },
-      { "stance_id": 6, "point": 2 }
+      { "stance_id": 6, "point": 0 }
     ]
   },
   {
@@ -28,7 +28,7 @@
       { "stance_id": 3, "point": -1 },
       { "stance_id": 4, "point": -1 },
       { "stance_id": 5, "point": -2 },
-      { "stance_id": 6, "point": 1 }
+      { "stance_id": 6, "point": 0 }
     ]
   },
   {
@@ -36,15 +36,15 @@
     "card_id": 3,
     "genre_id": 1,
     "policy_name": "海外製SNS規制",
-    "description": "TikfTokなどの外国アプリを規制する。",
+    "description": "海外製アプリを規制する。",
     "feasibility": 1,
     "stance_points": [
-      { "stance_id": 1, "point": 1 },
+      { "stance_id": 1, "point": 2 },
       { "stance_id": 2, "point": -1 },
-      { "stance_id": 3, "point": -1 },
-      { "stance_id": 4, "point": -2 },
-      { "stance_id": 5, "point": -2 },
-      { "stance_id": 6, "point": 1 }
+      { "stance_id": 3, "point": 0 },
+      { "stance_id": 4, "point": -1 },
+      { "stance_id": 5, "point": 0 },
+      { "stance_id": 6, "point": -2 }
     ]
   },
   {
@@ -55,12 +55,12 @@
     "description": "国会議員定数を削減して政治コストを削減する。",
     "feasibility": 2,
     "stance_points": [
-      { "stance_id": 1, "point": 0 },
+      { "stance_id": 1, "point": -2 },
       { "stance_id": 2, "point": 0 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": -1 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 5, "point": 0 },
+      { "stance_id": 6, "point": 2 }
     ]
   },
   {
@@ -71,11 +71,11 @@
     "description": "公務員給与を減らし財政を引き締める。",
     "feasibility": 2,
     "stance_points": [
-      { "stance_id": 1, "point": 1 },
-      { "stance_id": 2, "point": -1 },
+      { "stance_id": 1, "point": -1 },
+      { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": 1 },
-      { "stance_id": 4, "point": -1 },
-      { "stance_id": 5, "point": -2 },
+      { "stance_id": 4, "point": 0 },
+      { "stance_id": 5, "point": 0 },
       { "stance_id": 6, "point": 2 }
     ]
   },
@@ -85,14 +85,14 @@
     "genre_id": 1,
     "policy_name": "投票制度改正",
     "description": "電子投票を導入し、若者の投票率向上を図る。",
-    "feasibility": 2,
+    "feasibility": 1,
     "stance_points": [
       { "stance_id": 1, "point": -1 },
-      { "stance_id": 2, "point": 1 },
+      { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 4 }
+      { "stance_id": 6, "point": 2 }
     ]
   },
   {
@@ -108,7 +108,7 @@
       { "stance_id": 3, "point": -1 },
       { "stance_id": 4, "point": 2 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 2 }
     ]
   },
   {
@@ -119,12 +119,12 @@
     "description": "消費税をゼロにして景気を刺激する。",
     "feasibility": 1,
     "stance_points": [
-      { "stance_id": 1, "point": 0 },
+      { "stance_id": 1, "point": -2 },
       { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": -1 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 2 }
     ]
   },
   {
@@ -172,7 +172,7 @@
       { "stance_id": 3, "point": 1 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": -1 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 2 }
     ]
   },
   {
@@ -205,7 +205,7 @@
       { "stance_id": 3, "point": -1 },
       { "stance_id": 4, "point": 2 },
       { "stance_id": 5, "point": -1 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -221,7 +221,7 @@
       { "stance_id": 3, "point": -2 },
       { "stance_id": 4, "point": 2 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -237,7 +237,7 @@
       { "stance_id": 3, "point": -2 },
       { "stance_id": 4, "point": 2 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -253,7 +253,7 @@
       { "stance_id": 3, "point": -1 },
       { "stance_id": 4, "point": 2 },
       { "stance_id": 5, "point": -1 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -267,9 +267,9 @@
       { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": -1 },
-      { "stance_id": 4, "point": 2 },
+      { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -297,8 +297,8 @@
     "description": "脱原発に向けた計画を立てる。",
     "feasibility": 2,
     "stance_points": [
-      { "stance_id": 1, "point": -2 },
-      { "stance_id": 2, "point": 2 },
+      { "stance_id": 1, "point": -1 },
+      { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": -2 },
       { "stance_id": 4, "point": -1 },
       { "stance_id": 5, "point": 2 },
@@ -313,10 +313,10 @@
     "description": "安全性を確認しつつ再稼働を推進する。",
     "feasibility": 3,
     "stance_points": [
-      { "stance_id": 1, "point": 2 },
+      { "stance_id": 1, "point": 1 },
       { "stance_id": 2, "point": -2 },
       { "stance_id": 3, "point": 1 },
-      { "stance_id": 4, "point": -1 },
+      { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": -2 },
       { "stance_id": 6, "point": 1 }
     ]
@@ -343,14 +343,14 @@
     "genre_id": 4,
     "policy_name": "再生可能エネルギー推進",
     "description": "再エネ導入率に法的な義務を課す。",
-    "feasibility": 1,
+    "feasibility": 2,
     "stance_points": [
-      { "stance_id": 1, "point": -2 },
-      { "stance_id": 2, "point": 2 },
-      { "stance_id": 3, "point": -2 },
-      { "stance_id": 4, "point": -1 },
-      { "stance_id": 5, "point": 2 },
-      { "stance_id": 6, "point": 2 }
+      { "stance_id": 1, "point": 0 },
+      { "stance_id": 2, "point": 0 },
+      { "stance_id": 3, "point": -1 },
+      { "stance_id": 4, "point": 0 },
+      { "stance_id": 5, "point": 1 },
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -366,7 +366,7 @@
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 2 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -399,7 +399,7 @@
       { "stance_id": 3, "point": -1 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": -1 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -415,7 +415,7 @@
       { "stance_id": 3, "point": -1 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -431,7 +431,7 @@
       { "stance_id": 3, "point": -1 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 4 }
+      { "stance_id": 6, "point": 2 }
     ]
   },
   {
@@ -447,7 +447,7 @@
       { "stance_id": 3, "point": -1 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -456,14 +456,14 @@
     "genre_id": 5,
     "policy_name": "ハラスメント防止法導入",
     "description": "職場などでのハラスメント防止を法制化する。",
-    "feasibility": 4,
+    "feasibility": 2,
     "stance_points": [
       { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 4 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -475,11 +475,11 @@
     "feasibility": 4,
     "stance_points": [
       { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 2 },
+      { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 4 }
+      { "stance_id": 6, "point": 0 }
     ]
   }
 ]

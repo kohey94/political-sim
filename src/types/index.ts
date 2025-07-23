@@ -1,7 +1,14 @@
+// types/index.ts
+export type PolicyGenre = {
+  genre_id: string;
+  genre_name: string;
+};
+
 export type PolicyCard = {
-  id: string;
-  genre: string;
-  title: string;
+  expansion: string;
+  card_id: string;
+  genre_id: string;
+  policy_name: string;
   description: string;
   feasibility: number; // 0〜4
   stance_points: {
@@ -21,16 +28,18 @@ export type VoterSegment = {
 };
 
 export type PoliticalStance = {
-  id: string;
-  name: string;
-  description: string;
+  stance_id: string;
+  stance_name: string;
+  display_name: string;
+  display_name_short: string;
 };
 
 export type DisplayPolicyCard = {
-  card_id: number;
-  title: string;
+  expansion: string;
+  card_id: string;
+  genre_id: string;
+  policy_name: string;
   description: string;
-  genre_id: number;
   feasibility: number;
   stance_points: {
     conservative: number;

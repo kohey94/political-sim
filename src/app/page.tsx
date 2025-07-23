@@ -1,89 +1,58 @@
-// app/page.tsx
 "use client";
 
-import React, { useEffect, useState } from "react";
-import GenreSelector from "@/components/GenreSelector";
+import { useEffect, useState } from "react";
 import PolicyCard from "@/components/PolicyCard";
-import { DisplayPolicyCard } from "@/components/PolicyCard";
+import { PolicyCard as RawPolicyCard, PolicyGenre } from "@/types";
 
-type Genre = {
-  genre_id: number;
-  genre: string;
-};
+export default function CardsPage() {
+  const [cards, setCards] = useState<RawPolicyCard[]>([]);
+  const [genres, setGenres] = useState<PolicyGenre[]>([]);
+  const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
 
-type PolicyCard = {
-  card_id: number;
-  title: string;
-  description: string;
-  genre_id: number;
-};
+  useEffect(() => {
+    const load = async () => {
+      const cardRes = await fetch("/data/m_policy_cards.json");
+      const genreRes = await fetch("/data/m_policy_genre.json");
 
-const genres: Genre[] = [
-  { genre_id: 1, genre: "統治" },
-  { genre_id: 2, genre: "経済" },
-  { genre_id: 3, genre: "福祉" },
-  { genre_id: 4, genre: "環境" },
-  { genre_id: 5, genre: "人権" },
-];
+      // エラーハンドリングを追加（デバッグしやすくなる）
+      if (!cardRes.ok || !genreRes.ok) {
+        console.error("ファイルが見つかりません");
+        return;
+      }
 
-const exampleCard: DisplayPolicyCard = {
-  card_id: 1,
-  title: "カード名",
-  description: "これは説明テキストです。",
-  genre_id: 5,
-  feasibility: 4,
-  stance_points: {
-    conservative: 4,
-    liberal: 0,
-    economic: 1,
-    welfare: 0,
-    environment: 1,
-    neutral: 2,
-  },
-};
+      const cardData = await cardRes.json();
+      const genreData = await genreRes.json();
+      setCards(cardData);
+      setGenres(genreData);
+    };
 
-const HomePage = () => {
-  const [selectedGenreId, setSelectedGenreId] = useState<number | null>(null);
-  const [candidateCards, setCandidateCards] = useState<PolicyCard[]>([]);
-  const [selectedCards, setSelectedCards] = useState<PolicyCard[]>([]);
+    load();
+  }, []);
 
-  const handleCardSelect = (card: PolicyCard) => {
-    setSelectedCards(prev => [...prev, card]);
-    // 今後: 次の3枚 or 結果画面へ
-  };
+  const genreMap: Record<string, string> = Object.fromEntries(
+    genres.map(g => [g.genre_id.toString(), g.genre_name])
+  );
+
+  const getCardUid = (card: RawPolicyCard) =>
+    `${card.expansion ?? "EX01"}-${card.card_id.toString().padStart(3, "0")}`;
 
   return (
-    <div className="p-8">
-      <h1 className="text-xl font-semibold mb-4">推し政策ジャンルを選んでください</h1>
-
-      <GenreSelector
-        genres={genres}
-        selectedGenreId={selectedGenreId}
-        onSelect={setSelectedGenreId}
-      />
-
-      {candidateCards.length > 0 && (
-        <div className="mt-8">
-          <h2 className="text-lg font-bold mb-2">政策カードを選んでください</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {candidateCards.map(card => (
-              <button
-                key={`card-${card.card_id}`}
-                onClick={() => handleCardSelect(card)}
-                className="p-4 bg-white rounded shadow hover:bg-gray-100 text-left"
-              >
-                <h3 className="font-bold mb-1">{card.title}</h3>
-                <p className="text-sm text-gray-600">{card.description}</p>
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-      <div className="p-8">
-        <PolicyCard card={exampleCard} />
+    <main className="p-6">
+      <h1 className="text-xl font-bold mb-4">政策カード一覧</h1>
+      <div className="grid grid-cols-6 gap-6">
+        {cards.map(card => {
+          const uid = getCardUid(card);
+          return (
+            <PolicyCard
+              key={uid}
+              card={card}
+              genreMap={genreMap}
+              isSelected={selectedCardId === uid}
+              onSelect={() => setSelectedCardId(uid)}
+            />
+          );
+        })}
       </div>
-    </div>
+    </main>
   );
-};
-
-export default HomePage;
+}
