@@ -5,6 +5,8 @@ import PolicyCard from "@/components/PolicyCard";
 import { PolicyCard as RawPolicyCard, PolicyGenre } from "@/types";
 import SelectedPolicyArea from "@/components/SelectedPolicyArea";
 import ConfirmDialog from "@/components/ConfirmDialog";
+import SelectImportantPolicy from "@/components/SelectImportantPolicy";
+import SelectPolicy from "@/components/SelectPolicy";
 
 export default function CardsPage() {
   const [cards, setCards] = useState<RawPolicyCard[]>([]);
@@ -38,16 +40,14 @@ export default function CardsPage() {
   const getCardUid = (card: RawPolicyCard) =>
     `${card.expansion ?? "EX01"}-${card.card_id.toString().padStart(3, "0")}`;
 
-  // カードクリックで確認ダイアログ
   const handleCardClick = (card: RawPolicyCard) => {
     setPendingCard(card);
   };
 
-  // 確定処理
   const confirmSelection = () => {
     if (pendingCard) {
       setConfirmedCards(prev => {
-        if (prev.length >= 6) return prev; // 6件まで
+        if (prev.length >= 6) return prev;
         return [...prev, pendingCard];
       });
     }
@@ -56,21 +56,28 @@ export default function CardsPage() {
 
   return (
     <main className="p-6 mb-70">
-      <h1 className="text-xl font-bold mb-4">政策カード一覧</h1>
-      <div className="grid grid-cols-6 gap-6">
-        {cards.map(card => {
-          const uid = getCardUid(card);
-          return (
-            <PolicyCard
-              key={uid}
-              card={card}
-              genreMap={genreMap}
-              isSelected={false}
-              onSelect={() => handleCardClick(card)}
-            />
-          );
-        })}
-      </div>
+      {confirmedCards.length === 0 ? (
+        <SelectImportantPolicy
+          allCards={cards}
+          genres={genres}
+          genreMap={genreMap}
+          onConfirm={card => {
+            console.log("再重要政策として選ばれたカード:", card);
+            setConfirmedCards([card]);
+          }}
+        />
+      ) : confirmedCards.length < 6 ? (
+        <SelectPolicy
+          allCards={cards}
+          genreMap={genreMap}
+          onSelect={(card, turn) => {
+            console.log(`ターン${turn}で選ばれた:`, card);
+            setConfirmedCards(prev => [...prev, card]);
+          }}
+        />
+      ) : (
+        <div className="text-center text-lg font-bold mt-4">6枚選択済みです。</div>
+      )}
 
       <SelectedPolicyArea selectedCards={confirmedCards} genreMap={genreMap} />
 

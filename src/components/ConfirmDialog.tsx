@@ -26,7 +26,7 @@ export default function ConfirmDialog({
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-60">
       <div className="bg-white p-6 rounded shadow-md w-[360px] max-w-[95%] text-center flex flex-col items-center gap-4">
         {/* カードがあれば表示 */}
         {card && <PolicyCard card={card} genreMap={genreMap} isSelected={false} />}

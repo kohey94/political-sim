@@ -81,7 +81,9 @@ const PolicyCard: React.FC<Props> = ({ card, genreMap, isSelected, onSelect }) =
       {/* 説明文 + ジャンル */}
       <div className="h-28 border border-gray-300 rounded px-2 py-1 text-sm text-gray-700 bg-zinc-200 text-left">
         <span className="text-xs text-gray-500">
-          {genreMap[card.genre_id.toString()] ?? "不明"}
+          {card.genre_id != null && genreMap?.[card.genre_id.toString()]
+            ? genreMap[card.genre_id.toString()]
+            : "不明"}
         </span>
         <br />
         {card.description}
