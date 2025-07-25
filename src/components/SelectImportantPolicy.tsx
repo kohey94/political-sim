@@ -1,20 +1,43 @@
 "use client";
 
-import { useState } from "react";
-import { PolicyCard as RawPolicyCard, PolicyGenre } from "@/types";
-import PolicyCardsByGenre from "./DisplayPolicyCards";
+import { useEffect, useState } from "react";
+import { PolicyCard, PolicyGenre } from "@/types";
+import DisplayPolicyCards from "./DisplayPolicyCards";
 import ConfirmDialog from "./ConfirmDialog";
 
 interface Props {
-  allCards: RawPolicyCard[];
   genres: PolicyGenre[];
   genreMap: Record<string, string>;
-  onConfirm: (card: RawPolicyCard) => void; // 親へ通知
+  onConfirm: (card: PolicyCard, genreId: string) => void;
 }
 
-export default function SelectImportantPolicy({ allCards, genres, genreMap, onConfirm }: Props) {
+export default function SelectImportantPolicy({ genres, genreMap, onConfirm }: Props) {
   const [selectedGenreId, setSelectedGenreId] = useState("1");
-  const [pendingCard, setPendingCard] = useState<RawPolicyCard | null>(null);
+  const [cards, setCards] = useState<PolicyCard[]>([]);
+  const [pendingCard, setPendingCard] = useState<PolicyCard | null>(null);
+
+  useEffect(() => {
+    if (selectedGenreId) {
+      const fetchCards = async () => {
+        const res = await fetch(`/api/cards/important?genreId=${selectedGenreId}`);
+        const data = await res.json();
+        setCards(data);
+      };
+      fetchCards();
+    }
+  }, [selectedGenreId]);
+
+  const handleCardClick = (card: PolicyCard) => {
+    setPendingCard(card);
+  };
+
+  const confirmSelection = () => {
+    if (pendingCard && selectedGenreId) {
+      // 上位コンポーネントに通知
+      onConfirm(pendingCard, selectedGenreId);
+    }
+    setPendingCard(null);
+  };
 
   return (
     <div className="space-y-4">
@@ -38,24 +61,14 @@ export default function SelectImportantPolicy({ allCards, genres, genreMap, onCo
 
       {/* 選択ジャンルのカード一覧 */}
       {selectedGenreId && (
-        <PolicyCardsByGenre
-          allCards={allCards}
-          genreMap={genreMap}
-          selectedGenreId={selectedGenreId}
-          onCardSelect={card => setPendingCard(card)}
-        />
+        <DisplayPolicyCards allCards={cards} genreMap={genreMap} onCardSelect={handleCardClick} />
       )}
 
       {/* 確認ダイアログ */}
       <ConfirmDialog
         open={!!pendingCard}
         onCancel={() => setPendingCard(null)}
-        onConfirm={() => {
-          if (pendingCard) {
-            onConfirm(pendingCard);
-          }
-          setPendingCard(null);
-        }}
+        onConfirm={confirmSelection}
         card={pendingCard}
         genreMap={genreMap}
         isConfirmButtons={false}

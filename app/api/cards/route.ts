@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sessionCardMap } from "@/server/sessionMap";
+import { redis } from "@/lib/redis";
 import { PolicyCard } from "@/types";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const sessionId = searchParams.get("sessionId");
   const turnStr = searchParams.get("turn");
+
+  console.log("Received sessionId:", sessionId);
+  console.log("Available session keys:", await redis.keys("*"));
 
   if (!sessionId || !turnStr) {
     return NextResponse.json({ error: "sessionId and turn are required" }, { status: 400 });
@@ -16,12 +19,13 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Invalid turn" }, { status: 400 });
   }
 
-  const sessionData = sessionCardMap.get(sessionId);
-  if (!sessionData) {
+  const sessionDataStr = await redis.get(`${sessionId}`);
+  if (!sessionDataStr || typeof sessionDataStr !== "string") {
     return NextResponse.json({ error: "Session not found" }, { status: 404 });
   }
 
-  const { important, others }: { important: PolicyCard[]; others: PolicyCard[] } = sessionData;
+  const { important, others }: { important: PolicyCard[]; others: PolicyCard[] } =
+    JSON.parse(sessionDataStr);
 
   // 推しジャンルから1枚、他ジャンルから2枚をターンに応じて取り出す
   const importantCard = important[turn - 1];

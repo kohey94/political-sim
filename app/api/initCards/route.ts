@@ -1,14 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
+import { redis } from "@/lib/redis";
 import { parseToPolicyCards } from "@/lib/parsePolicyCards";
 import { structuredShuffle } from "@/lib/structuredShuffle";
-import { sessionCardMap } from "@/server/sessionMap";
 import cardsData from "@/data/m_policy_cards.json";
 
-export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
-  const importantGenreId = searchParams.get("importantGenreId");
-  const selectedCardId = searchParams.get("selectedCardId");
+export async function POST(req: NextRequest) {
+  const body = await req.json();
+  const { importantGenreId, selectedCardId } = body;
 
   if (!importantGenreId || !selectedCardId) {
     return NextResponse.json(
@@ -19,9 +18,10 @@ export async function GET(req: NextRequest) {
 
   const sessionId = uuidv4();
   const parsedCards = parseToPolicyCards(cardsData);
-
   const shuffled = structuredShuffle(parsedCards, importantGenreId, selectedCardId);
-  sessionCardMap.set(sessionId, shuffled);
+
+  // Redis に保存（30分でexpire）
+  await redis.setex(`${sessionId}`, 60 * 30, JSON.stringify(shuffled));
 
   return NextResponse.json({ sessionId });
 }

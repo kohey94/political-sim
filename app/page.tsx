@@ -18,31 +18,50 @@ export default function CardsPage() {
   const [turn, setTurn] = useState(1);
   const [importantGenreId, setImportantGenreId] = useState<string | null>(null);
 
-  // 初期化: sessionId取得、ジャンル取得
+  // 初回にジャンルのみ取得
   useEffect(() => {
-    const init = async () => {
-      const res = await fetch("/api/initCards");
-      const { sessionId } = await res.json();
-      setSessionId(sessionId);
-
+    const fetchGenres = async () => {
       const genreRes = await fetch("/data/m_policy_genre.json");
       const genreData = await genreRes.json();
       setGenres(genreData);
     };
 
-    init();
+    fetchGenres();
   }, []);
 
-  // ターンに応じてカード取得
+  // 最初の重要カード決定後に呼ばれる
+  const handleImportantPolicySelect = async (card: RawPolicyCard, genreId: string) => {
+    setConfirmedCards([card]);
+    setImportantGenreId(genreId);
+
+    const res = await fetch("/api/initCards", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        importantGenreId: genreId,
+        selectedCardId: card.card_id,
+      }),
+    });
+
+    const { sessionId: newSessionId } = await res.json();
+    setSessionId(newSessionId);
+
+    // 初回カード3枚を取得（turn=1）
+    const nextRes = await fetch(`/api/cards?sessionId=${newSessionId}&turn=1`);
+    const nextData = await nextRes.json();
+    setCandidateCards(nextData);
+    setTurn(1);
+  };
+
+  // 2回目以降のカード選択用（turnが進んだとき）
   useEffect(() => {
     const loadTurnCards = async () => {
-      if (!sessionId || !importantGenreId || confirmedCards.length >= 6) return;
+      if (!sessionId || !importantGenreId) return;
+      if (confirmedCards.length === 0 || confirmedCards.length >= 6) return;
 
-      const res = await fetch(
-        `/api/cards?sessionId=${sessionId}&turn=${turn}&importantGenreId=${importantGenreId}`
-      );
+      const res = await fetch(`/api/cards?sessionId=${sessionId}&turn=${turn}`);
       const data = await res.json();
-      setCandidateCards(data.cards);
+      setCandidateCards(data);
     };
 
     loadTurnCards();
@@ -68,15 +87,9 @@ export default function CardsPage() {
         <main className="p-6 mb-70">
           {confirmedCards.length === 0 ? (
             <SelectImportantPolicy
-              allCards={candidateCards}
               genres={genres}
               genreMap={genreMap}
-              onConfirm={card => {
-                console.log("再重要政策として選ばれたカード:", card);
-                setImportantGenreId(card.genre_id);
-                setConfirmedCards([card]);
-                setTurn(1);
-              }}
+              onConfirm={handleImportantPolicySelect}
             />
           ) : confirmedCards.length < 6 ? (
             <SelectPolicy
