@@ -41,6 +41,7 @@ export default function SelectImportantPolicy({ allCards, genres, genreMap, onCo
         <PolicyCardsByGenre
           allCards={allCards}
           genreMap={genreMap}
+          selectedGenreId={selectedGenreId}
           onCardSelect={card => setPendingCard(card)}
         />
       )}

@@ -7,12 +7,14 @@ import SelectedPolicyArea from "@/components/SelectedPolicyArea";
 import ConfirmDialog from "@/components/ConfirmDialog";
 import SelectImportantPolicy from "@/components/SelectImportantPolicy";
 import SelectPolicy from "@/components/SelectPolicy";
+import TitleScreen from "@/components/TitleScreen";
 
 export default function CardsPage() {
   const [cards, setCards] = useState<RawPolicyCard[]>([]);
   const [genres, setGenres] = useState<PolicyGenre[]>([]);
   const [pendingCard, setPendingCard] = useState<RawPolicyCard | null>(null);
   const [confirmedCards, setConfirmedCards] = useState<RawPolicyCard[]>([]);
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
     const load = async () => {
@@ -55,47 +57,53 @@ export default function CardsPage() {
   };
 
   return (
-    <main className="p-6 mb-70">
-      {confirmedCards.length === 0 ? (
-        <SelectImportantPolicy
-          allCards={cards}
-          genres={genres}
-          genreMap={genreMap}
-          onConfirm={card => {
-            console.log("再重要政策として選ばれたカード:", card);
-            setConfirmedCards([card]);
-          }}
-        />
-      ) : confirmedCards.length < 6 ? (
-        <SelectPolicy
-          allCards={cards}
-          genreMap={genreMap}
-          onSelect={(card, turn) => {
-            console.log(`ターン${turn}で選ばれた:`, card);
-            setConfirmedCards(prev => [...prev, card]);
-          }}
-        />
+    <>
+      {!started ? (
+        <TitleScreen onStart={() => setStarted(true)} />
       ) : (
-        <>
-          <div className="text-center text-lg font-bold mt-4">6枚選択済みです。</div>
-          <div className="text-center mt-6">
-            <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-              結果を見る
-            </button>
-          </div>
-        </>
+        <main className="p-6 mb-70">
+          {confirmedCards.length === 0 ? (
+            <SelectImportantPolicy
+              allCards={cards}
+              genres={genres}
+              genreMap={genreMap}
+              onConfirm={card => {
+                console.log("再重要政策として選ばれたカード:", card);
+                setConfirmedCards([card]);
+              }}
+            />
+          ) : confirmedCards.length < 6 ? (
+            <SelectPolicy
+              allCards={cards}
+              genreMap={genreMap}
+              onSelect={(card, turn) => {
+                console.log(`ターン${turn}で選ばれた:`, card);
+                setConfirmedCards(prev => [...prev, card]);
+              }}
+            />
+          ) : (
+            <>
+              <div className="text-center text-lg font-bold mt-4">6枚選択済みです。</div>
+              <div className="text-center mt-6">
+                <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                  結果を見る
+                </button>
+              </div>
+            </>
+          )}
+
+          <SelectedPolicyArea selectedCards={confirmedCards} genreMap={genreMap} />
+
+          <ConfirmDialog
+            open={!!pendingCard}
+            onCancel={() => setPendingCard(null)}
+            onConfirm={confirmSelection}
+            card={pendingCard}
+            genreMap={genreMap}
+            isConfirmButtons={false}
+          />
+        </main>
       )}
-
-      <SelectedPolicyArea selectedCards={confirmedCards} genreMap={genreMap} />
-
-      <ConfirmDialog
-        open={!!pendingCard}
-        onCancel={() => setPendingCard(null)}
-        onConfirm={confirmSelection}
-        card={pendingCard}
-        genreMap={genreMap}
-        isConfirmButtons={false}
-      />
-    </main>
+    </>
   );
 }

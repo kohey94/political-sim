@@ -29,6 +29,7 @@ export default function SelectPolicy({ allCards, genreMap, onSelect }: Props) {
       <DisplayPolicyCards
         allCards={candidateCards}
         genreMap={genreMap}
+        selectedGenreId={"1"}
         onCardSelect={handleCardSelect}
       />
     </div>
