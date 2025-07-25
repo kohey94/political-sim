@@ -6,22 +6,16 @@ import PolicyCard from "./PolicyCard";
 interface Props {
   allCards: RawPolicyCard[]; // フィルタ済みカードを渡す
   genreMap: { [genre_id: string]: string };
-  selectedGenreId: string;
   onCardSelect?: (card: RawPolicyCard) => void; // 選択時に呼び出すコールバック
 }
 
-export default function DisplayPolicyCards({
-  allCards,
-  genreMap,
-  selectedGenreId,
-  onCardSelect,
-}: Props) {
-  const cards = allCards.filter(c => c.genre_id.toString() === selectedGenreId).slice(0, 6);
-
+export default function DisplayPolicyCards({ allCards, genreMap, onCardSelect }: Props) {
   return (
     <div className="flex flex-col items-center">
-      <div className={`grid gap-4 ${cards.length > 3 ? "grid-cols-6 grid-rows-1" : "grid-cols-3"}`}>
-        {cards.map(card => (
+      <div
+        className={`grid gap-4 ${allCards.length > 3 ? "grid-cols-6 grid-rows-1" : "grid-cols-3"}`}
+      >
+        {allCards.map(card => (
           <PolicyCard
             key={card.card_id}
             card={card}
