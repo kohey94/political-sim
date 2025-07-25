@@ -76,7 +76,14 @@ export default function CardsPage() {
           }}
         />
       ) : (
-        <div className="text-center text-lg font-bold mt-4">6枚選択済みです。</div>
+        <>
+          <div className="text-center text-lg font-bold mt-4">6枚選択済みです。</div>
+          <div className="text-center mt-6">
+            <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+              結果を見る
+            </button>
+          </div>
+        </>
       )}
 
       <SelectedPolicyArea selectedCards={confirmedCards} genreMap={genreMap} />
