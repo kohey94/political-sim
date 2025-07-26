@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { useGenreStore } from "@/stores/genreStore";
 import { useStanceStore } from "@/stores/stanceStore";
-import { PolicyCard as RawPolicyCard, PolicyGenre } from "@/types";
+import { useSegmentStore } from "@/stores/segmentStore";
+import { PolicyCard as RawPolicyCard } from "@/types";
 import SelectedPolicyArea from "@/components/SelectedPolicyArea";
 import ConfirmDialog from "@/components/ConfirmDialog";
 import SelectImportantPolicy from "@/components/SelectImportantPolicy";
@@ -12,7 +13,6 @@ import TitleScreen from "@/components/TitleScreen";
 
 export default function CardsPage() {
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const [genres, setGenresOld] = useState<PolicyGenre[]>([]);
   const [candidateCards, setCandidateCards] = useState<RawPolicyCard[]>([]);
   const [confirmedCards, setConfirmedCards] = useState<RawPolicyCard[]>([]);
   const [pendingCard, setPendingCard] = useState<RawPolicyCard | null>(null);
@@ -21,17 +21,7 @@ export default function CardsPage() {
   const [importantGenreId, setImportantGenreId] = useState<string | null>(null);
   const { genreLoaded, setGenres } = useGenreStore();
   const { stanceLoaded, setStances } = useStanceStore();
-
-  // 初回にジャンルのみ取得(旧)
-  useEffect(() => {
-    const fetchGenres = async () => {
-      const genreRes = await fetch("/data/m_policy_genre.json");
-      const genreData = await genreRes.json();
-      setGenresOld(genreData);
-    };
-
-    fetchGenres();
-  }, []);
+  const { segmentLoaded, setSegments } = useSegmentStore();
 
   // 初回にジャンルのみ取得(新)
   useEffect(() => {
@@ -53,6 +43,17 @@ export default function CardsPage() {
     };
     if (!stanceLoaded) fetchStances();
   }, [stanceLoaded, setStances]);
+
+  useEffect(() => {
+    if (!segmentLoaded) {
+      const fetchSegments = async () => {
+        const res = await fetch("/api/segments");
+        const data = await res.json();
+        setSegments(data);
+      };
+      fetchSegments();
+    }
+  }, [segmentLoaded, setSegments]);
 
   // 最初の重要カード決定後に呼ばれる
   const handleImportantPolicySelect = async (card: RawPolicyCard, genreId: string) => {
@@ -93,10 +94,6 @@ export default function CardsPage() {
     loadTurnCards();
   }, [sessionId, importantGenreId, turn, confirmedCards.length]);
 
-  const genreMap: Record<string, string> = Object.fromEntries(
-    genres.map(g => [g.genre_id.toString(), g.genre_name])
-  );
-
   const confirmSelection = () => {
     if (pendingCard) {
       setConfirmedCards(prev => [...prev, pendingCard]);
@@ -116,7 +113,7 @@ export default function CardsPage() {
       ) : (
         <main className="p-6 mb-70">
           {confirmedCards.length === 0 ? (
-            <SelectImportantPolicy genres={genres} onConfirm={handleImportantPolicySelect} />
+            <SelectImportantPolicy onConfirm={handleImportantPolicySelect} />
           ) : confirmedCards.length < 6 ? (
             <SelectPolicy
               allCards={candidateCards}

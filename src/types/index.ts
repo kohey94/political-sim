@@ -19,13 +19,10 @@ export type PolicyCard = {
 };
 
 export type VoterSegment = {
-  id: string;
-  name: string;
-  percentage: number;
-  stance_weights: {
-    stance_id: string;
-    weight: number;
-  }[];
+  segment_id: string;
+  stance_id: string;
+  ratio: string;
+  description: number;
 };
 
 export type PoliticalStance = {

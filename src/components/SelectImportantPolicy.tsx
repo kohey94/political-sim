@@ -1,20 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PolicyCard, PolicyGenre } from "@/types";
+import { PolicyCard } from "@/types";
 import DisplayPolicyCards from "./DisplayPolicyCards";
 import ConfirmDialog from "./ConfirmDialog";
+import { useGenreStore } from "@/stores/genreStore";
 
 interface Props {
-  genres: PolicyGenre[];
   onConfirm: (card: PolicyCard, genreId: string) => void;
 }
 
-export default function SelectImportantPolicy({ genres, onConfirm }: Props) {
+export default function SelectImportantPolicy({ onConfirm }: Props) {
   const [selectedGenreId, setSelectedGenreId] = useState("1");
   const [cards, setCards] = useState<PolicyCard[]>([]);
   const [pendingCard, setPendingCard] = useState<PolicyCard | null>(null);
+  const { genres } = useGenreStore();
 
+  // TODO 全ジャンルのカードをredisに保持してアクセスするほうがいいかも
   useEffect(() => {
     if (selectedGenreId) {
       const fetchCards = async () => {

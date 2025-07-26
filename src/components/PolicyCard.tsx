@@ -4,6 +4,7 @@ import React from "react";
 import { PolicyCard as RawPolicyCard } from "@/types";
 import { useGenreStore } from "@/stores/genreStore";
 import { useStanceStore } from "@/stores/stanceStore";
+import Image from "next/image";
 
 interface Props {
   card: RawPolicyCard;
@@ -47,9 +48,13 @@ const PolicyCard: React.FC<Props> = ({ card, isSelected, onSelect }) => {
 
       {/* イラストエリア */}
       <div className="h-30 border border-gray-300 rounded h-24 flex items-center justify-center text-sm text-gray-500 bg-gray-50">
-        <img
-          src={`/image/policy_card/ex${card.expansion.toString().padStart(2, "0")}-${card.card_id.toString().padStart(3, "0")}.png`}
+        <Image
+          src={`/image/policy_card/ex${card.expansion.toString().padStart(2, "0")}-${card.card_id
+            .toString()
+            .padStart(3, "0")}.png`}
           alt="イラスト"
+          width={256} // 必須
+          height={96} // 必須
           className="object-contain h-full"
         />
       </div>
