@@ -1,22 +1,27 @@
 [
   {
     "genre_id": 1,
-    "genre_name": "統治"
+    "genre_name": "統治",
+    "genre_color": "bg-red-500"
   },
   {
     "genre_id": 2,
-    "genre_name": "経済"
+    "genre_name": "経済",
+    "genre_color": "bg-green-500"
   },
   {
     "genre_id": 3,
-    "genre_name": "福祉"
+    "genre_name": "福祉",
+    "genre_color": "bg-yellow-400"
   },
   {
     "genre_id": 4,
-    "genre_name": "環境"
+    "genre_name": "環境",
+    "genre_color": "bg-blue-500"
   },
   {
     "genre_id": 5,
-    "genre_name": "人権"
+    "genre_name": "人権",
+    "genre_color": "bg-purple-500"
   }
 ]

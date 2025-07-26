@@ -48,6 +48,7 @@ export default function CardsPage() {
 
     // 初回カード3枚を取得（turn=1）
     const nextRes = await fetch(`/api/cards?sessionId=${newSessionId}&turn=1`);
+
     const nextData = await nextRes.json();
     setCandidateCards(nextData);
     setTurn(1);
