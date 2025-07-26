@@ -60,7 +60,14 @@ export interface SelectedPolicy {
 export interface EvaluateRequest {
   mostImportantPolicyId: string;
   selectedPolicies: SelectedPolicy[];
+  segments: SegmentInfo[];
 }
+
+export type SegmentInfo = {
+  segment_id: number;
+  stance_id: number;
+  ratio: number;
+};
 
 export interface EvaluateResponse {
   totalScore: number; // 得票率（0〜100）
@@ -69,9 +76,3 @@ export interface EvaluateResponse {
     score: number; // 各層ごとの得点 (0-100)
   }[];
 }
-
-export type SegmentInfo = {
-  segment_id: number;
-  stance_id: number;
-  ratio: number;
-};

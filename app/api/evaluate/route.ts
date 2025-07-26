@@ -1,23 +1,15 @@
 import { NextResponse } from "next/server";
-import { EvaluateRequest, EvaluateResponse, SegmentInfo } from "@/types";
+import { EvaluateRequest, EvaluateResponse } from "@/types";
 import { calculateScoreFromSegments } from "@/lib/scoring";
-import { getBaseUrl } from "@/lib/getBaseUrl";
 
 export async function POST(req: Request): Promise<NextResponse<EvaluateResponse>> {
   try {
-    const { mostImportantPolicyId, selectedPolicies }: EvaluateRequest = await req.json();
-
-    const baseUrl = getBaseUrl();
-    const res = await fetch(`${baseUrl}/api/segments`);
-    if (!res.ok) {
-      throw new Error("Failed to fetch segments");
-    }
-    const segmentData: SegmentInfo[] = await res.json();
+    const { mostImportantPolicyId, selectedPolicies, segments }: EvaluateRequest = await req.json();
 
     const { totalScore, segmentScores } = calculateScoreFromSegments(
       selectedPolicies,
       mostImportantPolicyId,
-      segmentData
+      segments
     );
     return NextResponse.json({ totalScore, segmentScores });
   } catch (err) {

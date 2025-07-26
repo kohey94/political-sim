@@ -1,25 +1,17 @@
-import { SelectedPolicy, EvaluateResponse } from "@/types";
-
-export type StanceId = number;
-
-export type SegmentInfo = {
-  segment_id: number;
-  stance_id: StanceId;
-  ratio: number; // 単位: %
-};
+import { SelectedPolicy, EvaluateResponse, SegmentInfo } from "@/types";
 
 export function calculateScoreFromSegments(
   policies: SelectedPolicy[],
   mostImportantId: string,
-  segmentData: SegmentInfo[]
+  segments: SegmentInfo[]
 ): EvaluateResponse {
   // stance_id → ratio（0〜1.0）へ変換
-  const stanceRatioMap: Record<StanceId, number> = {};
-  for (const seg of segmentData) {
+  const stanceRatioMap: Record<number, number> = {};
+  for (const seg of segments) {
     stanceRatioMap[seg.stance_id] = seg.ratio / 100;
   }
 
-  const totalImpact: Record<StanceId, number> = {};
+  const totalImpact: Record<number, number> = {};
 
   let feasibilitySum = 0;
 

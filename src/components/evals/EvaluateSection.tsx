@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { PolicyCard, SelectedPolicy, EvaluateResponse } from "@/types";
-
 import ElectionResult from "../areas/AreaResult";
 import { getBaseUrl } from "@/lib/getBaseUrl";
+import { useSegmentStore } from "@/stores/segmentStore";
 
 const baseUrl = getBaseUrl();
 
@@ -15,6 +15,7 @@ interface Props {
 export default function EvaluateSection({ selectedCards }: Props) {
   const [result, setResult] = useState<EvaluateResponse | null>(null);
   const [loading, setLoading] = useState(false);
+  const { segments } = useSegmentStore();
 
   const mostImportantPolicyId = selectedCards[0]?.card_id ?? "";
 
@@ -41,6 +42,7 @@ export default function EvaluateSection({ selectedCards }: Props) {
         body: JSON.stringify({
           mostImportantPolicyId,
           selectedPolicies: toSelectedPolicies,
+          segments,
         }),
       });
 
