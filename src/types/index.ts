@@ -49,3 +49,33 @@ export type DisplayPolicyCard = {
     neutral: number;
   };
 };
+
+export type VoterSegmentId =
+  | "conservative"
+  | "liberal"
+  | "economic"
+  | "welfare"
+  | "environment"
+  | "independent";
+
+export interface SelectedPolicy {
+  id: string;
+  title: string;
+  feasibility: number;
+  impacts: Record<number, number>;
+}
+
+export interface EvaluateRequest {
+  mostImportantPolicyId: string;
+  selectedPolicies: SelectedPolicy[];
+}
+
+export interface EvaluateResponse {
+  score: number; // 得票率（0〜100）
+}
+
+export type SegmentInfo = {
+  segment_id: number;
+  stance_id: number;
+  ratio: number;
+};

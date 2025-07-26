@@ -13,19 +13,19 @@
   },
   {
     "stance_id": 3,
-    "stance_name": "economy_oriented",
+    "stance_name": "economic",
     "display_name": "経済重視層",
     "display_name_short": "経"
   },
   {
     "stance_id": 4,
-    "stance_name": "welfare_oriented",
+    "stance_name": "welfare",
     "display_name": "福祉重視層",
     "display_name_short": "福"
   },
   {
     "stance_id": 5,
-    "stance_name": "environment_oriented",
+    "stance_name": "environment",
     "display_name": "環境重視層",
     "display_name_short": "環"
   },

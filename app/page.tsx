@@ -11,6 +11,7 @@ import SelectImportantPolicy from "@/components/selects/SelectImportantPolicy";
 import SelectPolicy from "@/components/selects/SelectPolicy";
 import TitleScreen from "@/components/TitleScreen";
 import VoterSegments from "@/components/VoterSegments";
+import EvaluateSection from "@/components/EvaluateSection";
 
 export default function CardsPage() {
   const [sessionId, setSessionId] = useState<string | null>(null);
@@ -127,17 +128,11 @@ export default function CardsPage() {
               }}
             />
           ) : (
-            <>
-              <div className="text-center text-lg font-bold mt-4">政策の選択が完了しました。</div>
-              <div className="text-center mt-6">
-                <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                  民意を問う
-                </button>
-              </div>
-            </>
+            <EvaluateSection selectedCards={confirmedCards} />
           )}
 
           <VoterSegments />
+
           <SelectedPolicyArea selectedCards={confirmedCards} />
 
           <ConfirmDialog
