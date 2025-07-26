@@ -1,0 +1,38 @@
+[
+  {
+    "stance_id": 1,
+    "stance_name": "conservative",
+    "display_name": "保守層",
+    "display_name_short": "保"
+  },
+  {
+    "stance_id": 2,
+    "stance_name": "liberal",
+    "display_name": "リベラル層",
+    "display_name_short": "リ"
+  },
+  {
+    "stance_id": 3,
+    "stance_name": "economy_oriented",
+    "display_name": "経済重視層",
+    "display_name_short": "経"
+  },
+  {
+    "stance_id": 4,
+    "stance_name": "welfare_oriented",
+    "display_name": "福祉重視層",
+    "display_name_short": "福"
+  },
+  {
+    "stance_id": 5,
+    "stance_name": "environment_oriented",
+    "display_name": "環境重視層",
+    "display_name_short": "環"
+  },
+  {
+    "stance_id": 6,
+    "stance_name": "independent",
+    "display_name": "無党派層",
+    "display_name_short": "無"
+  }
+]

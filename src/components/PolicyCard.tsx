@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { PolicyCard as RawPolicyCard, PoliticalStance } from "@/types";
+import { PolicyCard as RawPolicyCard } from "@/types";
 import { useGenreStore } from "@/stores/genreStore";
+import { useStanceStore } from "@/stores/stanceStore";
 
 interface Props {
   card: RawPolicyCard;
@@ -11,30 +12,17 @@ interface Props {
 }
 
 const PolicyCard: React.FC<Props> = ({ card, isSelected, onSelect }) => {
-  const [stanceLabelMap, setStanceLabelMap] = useState<Record<string, string>>({});
-  const [stanceIdList, setStanceIdList] = useState<string[]>([]); // 表示順用
   const [stanceMap, setStanceMap] = useState<Record<string, number>>({}); // stance_id → point
   const { genreMap } = useGenreStore();
+  const { stanceLabelMap, stanceOrder } = useStanceStore();
 
   useEffect(() => {
     const loadStances = async () => {
-      const res = await fetch("/data/m_political_stance.json");
-      const data: PoliticalStance[] = await res.json();
-
-      // stance_id → label
-      const labelMap = Object.fromEntries(
-        data.map(s => [s.stance_id.toString(), s.display_name_short])
-      );
-
-      const idList = data.map(s => s.stance_id.toString());
-
       // stance_id → point
       const pointMap = Object.fromEntries(
         card.stance_points.map(sp => [sp.stance_id.toString(), sp.point])
       );
 
-      setStanceLabelMap(labelMap);
-      setStanceIdList(idList);
       setStanceMap(pointMap);
     };
 
@@ -88,7 +76,7 @@ const PolicyCard: React.FC<Props> = ({ card, isSelected, onSelect }) => {
 
       {/* スタンス別ポイント */}
       <div className="h-10 border border-gray-300 rounded grid grid-cols-6 text-xs text-center overflow-hidden bg-zinc-200">
-        {stanceIdList.map(stanceId => (
+        {stanceOrder.map(stanceId => (
           <div key={stanceId} className="py-1 border-r border-gray-200 last:border-r-0">
             <span className="font-semibold">{stanceLabelMap[stanceId] ?? "?"}</span>
             <br />

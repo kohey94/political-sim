@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useGenreStore } from "@/stores/genreStore";
+import { useStanceStore } from "@/stores/stanceStore";
 import { PolicyCard as RawPolicyCard, PolicyGenre } from "@/types";
 import SelectedPolicyArea from "@/components/SelectedPolicyArea";
 import ConfirmDialog from "@/components/ConfirmDialog";
@@ -18,7 +19,8 @@ export default function CardsPage() {
   const [started, setStarted] = useState(false);
   const [turn, setTurn] = useState(1);
   const [importantGenreId, setImportantGenreId] = useState<string | null>(null);
-  const { loaded, setGenres } = useGenreStore();
+  const { genreLoaded, setGenres } = useGenreStore();
+  const { stanceLoaded, setStances } = useStanceStore();
 
   // 初回にジャンルのみ取得(旧)
   useEffect(() => {
@@ -33,15 +35,24 @@ export default function CardsPage() {
 
   // 初回にジャンルのみ取得(新)
   useEffect(() => {
-    if (!loaded) {
+    if (!genreLoaded) {
       const fetchGenres = async () => {
         const res = await fetch("api/genres");
         const data = await res.json();
         setGenres(data);
       };
-      fetchGenres();
+      if (!genreLoaded) fetchGenres();
     }
-  }, [loaded, setGenres]);
+  }, [genreLoaded, setGenres]);
+
+  useEffect(() => {
+    const fetchStances = async () => {
+      const res = await fetch("/api/stances");
+      const data = await res.json();
+      setStances(data);
+    };
+    if (!stanceLoaded) fetchStances();
+  }, [stanceLoaded, setStances]);
 
   // 最初の重要カード決定後に呼ばれる
   const handleImportantPolicySelect = async (card: RawPolicyCard, genreId: string) => {
@@ -94,7 +105,7 @@ export default function CardsPage() {
     setTurn(prev => prev + 1);
   };
 
-  if (!loaded) {
+  if (!genreLoaded || !stanceLoaded) {
     return <div className="text-center mt-10">loading...</div>;
   }
 
