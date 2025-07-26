@@ -9,7 +9,6 @@ interface ConfirmDialogProps {
   onConfirm?: () => void;
   onCancel: () => void;
   card?: RawPolicyCard | null;
-  genreMap: { [genre_id: string]: string };
   children?: ReactNode;
   isConfirmButtons?: boolean;
 }
@@ -19,7 +18,6 @@ export default function ConfirmDialog({
   onConfirm,
   onCancel,
   card,
-  genreMap,
   children,
   isConfirmButtons,
 }: ConfirmDialogProps) {
@@ -29,7 +27,7 @@ export default function ConfirmDialog({
     <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-60">
       <div className="bg-white p-6 rounded shadow-md w-[360px] max-w-[95%] text-center flex flex-col items-center gap-4">
         {/* カードがあれば表示 */}
-        {card && <PolicyCard card={card} genreMap={genreMap} isSelected={false} />}
+        {card && <PolicyCard card={card} isSelected={false} />}
 
         {/* メッセージ */}
         {!isConfirmButtons && (

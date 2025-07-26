@@ -2,18 +2,19 @@
 
 import React, { useEffect, useState } from "react";
 import { PolicyCard as RawPolicyCard, PoliticalStance } from "@/types";
+import { useGenreStore } from "@/stores/genreStore";
 
 interface Props {
   card: RawPolicyCard;
-  genreMap: { [genre_id: string]: string };
   isSelected?: boolean;
   onSelect?: () => void;
 }
 
-const PolicyCard: React.FC<Props> = ({ card, genreMap, isSelected, onSelect }) => {
+const PolicyCard: React.FC<Props> = ({ card, isSelected, onSelect }) => {
   const [stanceLabelMap, setStanceLabelMap] = useState<Record<string, string>>({});
   const [stanceIdList, setStanceIdList] = useState<string[]>([]); // 表示順用
   const [stanceMap, setStanceMap] = useState<Record<string, number>>({}); // stance_id → point
+  const { genreMap } = useGenreStore();
 
   useEffect(() => {
     const loadStances = async () => {
@@ -40,18 +41,14 @@ const PolicyCard: React.FC<Props> = ({ card, genreMap, isSelected, onSelect }) =
     loadStances();
   }, [card]);
 
-  const genreColorMap: { [key: string]: string } = {
-    "1": "bg-red-500", // 統治
-    "2": "bg-green-500", // 経済
-    "3": "bg-yellow-400", // 福祉
-    "4": "bg-blue-500", // 環境
-    "5": "bg-purple-500", // 人権
-  };
-
   return (
     <div
       className={`relative w-64 h-88 rounded-lg border border-gray-400 shadow p-2 space-y-2
-      ${genreColorMap[card.genre_id] ?? "bg-white"}
+      ${
+        card.genre_id != null && genreMap[card.genre_id.toString()]
+          ? genreMap[card.genre_id.toString()]?.genre_color
+          : "bg-white"
+      }
       ${isSelected ? "outline outline-4 outline-yellow-400 outline-offset-2" : ""}
     `}
       onClick={onSelect}
@@ -81,8 +78,8 @@ const PolicyCard: React.FC<Props> = ({ card, genreMap, isSelected, onSelect }) =
       {/* 説明文 + ジャンル */}
       <div className="h-28 border border-gray-300 rounded px-2 py-1 text-sm text-gray-700 bg-zinc-200 text-left">
         <span className="text-xs text-gray-500">
-          {card.genre_id != null && genreMap?.[card.genre_id.toString()]
-            ? genreMap[card.genre_id.toString()]
+          {card.genre_id != null && genreMap[card.genre_id.toString()]
+            ? genreMap[card.genre_id.toString()]?.genre_name
             : "不明"}
         </span>
         <br />

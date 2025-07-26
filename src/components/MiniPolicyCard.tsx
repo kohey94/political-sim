@@ -1,20 +1,14 @@
 "use client";
 
 import { PolicyCard as RawPolicyCard } from "@/types";
+import { useGenreStore } from "@/stores/genreStore";
 
 interface Props {
   card: RawPolicyCard;
 }
 
-const genreColorMap: { [key: string]: string } = {
-  "1": "bg-red-500", // 統治
-  "2": "bg-green-500", // 経済
-  "3": "bg-yellow-400", // 福祉
-  "4": "bg-blue-500", // 環境
-  "5": "bg-purple-500", // 人権
-};
-
 export default function MiniPolicyCard({ card }: Props) {
+  const { genreMap } = useGenreStore();
   const stanceMap = Object.fromEntries(
     card.stance_points.map(sp => [sp.stance_id.toString(), sp.point])
   );
@@ -24,7 +18,9 @@ export default function MiniPolicyCard({ card }: Props) {
   return (
     <div
       className={`w-full h-full overflow-hidden border rounded p-1 shadow flex flex-col justify-between items-center text-[10px] ${
-        genreColorMap[card.genre_id] ?? "bg-gray-400"
+        card.genre_id != null && genreMap[card.genre_id.toString()]
+          ? genreMap[card.genre_id.toString()]?.genre_color
+          : "bg-white"
       }`}
     >
       {/* タイトル（省略付き） */}

@@ -2,6 +2,7 @@
 export type PolicyGenre = {
   genre_id: string;
   genre_name: string;
+  genre_color: string;
 };
 
 export type PolicyCard = {

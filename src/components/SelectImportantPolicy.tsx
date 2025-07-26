@@ -7,11 +7,10 @@ import ConfirmDialog from "./ConfirmDialog";
 
 interface Props {
   genres: PolicyGenre[];
-  genreMap: Record<string, string>;
   onConfirm: (card: PolicyCard, genreId: string) => void;
 }
 
-export default function SelectImportantPolicy({ genres, genreMap, onConfirm }: Props) {
+export default function SelectImportantPolicy({ genres, onConfirm }: Props) {
   const [selectedGenreId, setSelectedGenreId] = useState("1");
   const [cards, setCards] = useState<PolicyCard[]>([]);
   const [pendingCard, setPendingCard] = useState<PolicyCard | null>(null);
@@ -60,9 +59,7 @@ export default function SelectImportantPolicy({ genres, genreMap, onConfirm }: P
       </div>
 
       {/* 選択ジャンルのカード一覧 */}
-      {selectedGenreId && (
-        <DisplayPolicyCards allCards={cards} genreMap={genreMap} onCardSelect={handleCardClick} />
-      )}
+      {selectedGenreId && <DisplayPolicyCards allCards={cards} onCardSelect={handleCardClick} />}
 
       {/* 確認ダイアログ */}
       <ConfirmDialog
@@ -70,7 +67,6 @@ export default function SelectImportantPolicy({ genres, genreMap, onConfirm }: P
         onCancel={() => setPendingCard(null)}
         onConfirm={confirmSelection}
         card={pendingCard}
-        genreMap={genreMap}
         isConfirmButtons={false}
       />
     </div>

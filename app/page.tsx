@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useGenreStore } from "@/stores/genreStore";
 import { PolicyCard as RawPolicyCard, PolicyGenre } from "@/types";
 import SelectedPolicyArea from "@/components/SelectedPolicyArea";
 import ConfirmDialog from "@/components/ConfirmDialog";
@@ -10,24 +11,37 @@ import TitleScreen from "@/components/TitleScreen";
 
 export default function CardsPage() {
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const [genres, setGenres] = useState<PolicyGenre[]>([]);
+  const [genres, setGenresOld] = useState<PolicyGenre[]>([]);
   const [candidateCards, setCandidateCards] = useState<RawPolicyCard[]>([]);
   const [confirmedCards, setConfirmedCards] = useState<RawPolicyCard[]>([]);
   const [pendingCard, setPendingCard] = useState<RawPolicyCard | null>(null);
   const [started, setStarted] = useState(false);
   const [turn, setTurn] = useState(1);
   const [importantGenreId, setImportantGenreId] = useState<string | null>(null);
+  const { loaded, setGenres } = useGenreStore();
 
-  // 初回にジャンルのみ取得
+  // 初回にジャンルのみ取得(旧)
   useEffect(() => {
     const fetchGenres = async () => {
       const genreRes = await fetch("/data/m_policy_genre.json");
       const genreData = await genreRes.json();
-      setGenres(genreData);
+      setGenresOld(genreData);
     };
 
     fetchGenres();
   }, []);
+
+  // 初回にジャンルのみ取得(新)
+  useEffect(() => {
+    if (!loaded) {
+      const fetchGenres = async () => {
+        const res = await fetch("api/genres");
+        const data = await res.json();
+        setGenres(data);
+      };
+      fetchGenres();
+    }
+  }, [loaded, setGenres]);
 
   // 最初の重要カード決定後に呼ばれる
   const handleImportantPolicySelect = async (card: RawPolicyCard, genreId: string) => {
@@ -80,6 +94,10 @@ export default function CardsPage() {
     setTurn(prev => prev + 1);
   };
 
+  if (!loaded) {
+    return <div className="text-center mt-10">loading...</div>;
+  }
+
   return (
     <>
       {!started ? (
@@ -87,15 +105,10 @@ export default function CardsPage() {
       ) : (
         <main className="p-6 mb-70">
           {confirmedCards.length === 0 ? (
-            <SelectImportantPolicy
-              genres={genres}
-              genreMap={genreMap}
-              onConfirm={handleImportantPolicySelect}
-            />
+            <SelectImportantPolicy genres={genres} onConfirm={handleImportantPolicySelect} />
           ) : confirmedCards.length < 6 ? (
             <SelectPolicy
               allCards={candidateCards}
-              genreMap={genreMap}
               turn={turn}
               onSelect={card => {
                 console.log(`ターン${turn}で選ばれた:`, card);
@@ -120,7 +133,6 @@ export default function CardsPage() {
             onCancel={() => setPendingCard(null)}
             onConfirm={confirmSelection}
             card={pendingCard}
-            genreMap={genreMap}
             isConfirmButtons={false}
           />
         </main>
