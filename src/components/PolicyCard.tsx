@@ -17,16 +17,11 @@ const PolicyCard: React.FC<Props> = ({ card, isSelected, onSelect }) => {
   const { stanceLabelMap, stanceOrder } = useStanceStore();
 
   useEffect(() => {
-    const loadStances = async () => {
-      // stance_id → point
-      const pointMap = Object.fromEntries(
-        card.stance_points.map(sp => [sp.stance_id.toString(), sp.point])
-      );
-
-      setStanceMap(pointMap);
-    };
-
-    loadStances();
+    // stance_idとpointのマッピング
+    const pointMap = Object.fromEntries(
+      card.stance_points.map(sp => [sp.stance_id.toString(), sp.point])
+    );
+    setStanceMap(pointMap);
   }, [card]);
 
   return (
