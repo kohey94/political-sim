@@ -23,6 +23,7 @@ export type VoterSegment = {
   stance_id: string;
   ratio: string;
   description: number;
+  segment_color: string;
 };
 
 export type PoliticalStance = {

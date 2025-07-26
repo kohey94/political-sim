@@ -43,7 +43,7 @@ export default function SelectImportantPolicy({ onConfirm }: Props) {
   return (
     <div className="space-y-4">
       {/* ジャンル選択 */}
-      <div className="text-lg font-semibold text-center">ジャンルを選んでください</div>
+      <div className="text-lg font-semibold text-center">最重要政策を選んでください</div>
       <div className="flex flex-wrap gap-2 justify-center">
         {genres.map(g => (
           <button

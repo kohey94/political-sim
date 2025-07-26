@@ -10,6 +10,7 @@ import ConfirmDialog from "@/components/ConfirmDialog";
 import SelectImportantPolicy from "@/components/SelectImportantPolicy";
 import SelectPolicy from "@/components/SelectPolicy";
 import TitleScreen from "@/components/TitleScreen";
+import VoterSegments from "@/components/VoterSegments";
 
 export default function CardsPage() {
   const [sessionId, setSessionId] = useState<string | null>(null);
@@ -109,9 +110,11 @@ export default function CardsPage() {
   return (
     <>
       {!started ? (
-        <TitleScreen onStart={() => setStarted(true)} />
+        <main className="p-4">
+          <TitleScreen onStart={() => setStarted(true)} />
+        </main>
       ) : (
-        <main className="p-6 mb-70">
+        <main className="p-6 mt-25 mb-70">
           {confirmedCards.length === 0 ? (
             <SelectImportantPolicy onConfirm={handleImportantPolicySelect} />
           ) : confirmedCards.length < 6 ? (
@@ -125,15 +128,16 @@ export default function CardsPage() {
             />
           ) : (
             <>
-              <div className="text-center text-lg font-bold mt-4">6枚選択済みです。</div>
+              <div className="text-center text-lg font-bold mt-4">政策の選択が完了しました。</div>
               <div className="text-center mt-6">
                 <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                  結果を見る
+                  民意を問う
                 </button>
               </div>
             </>
           )}
 
+          <VoterSegments />
           <SelectedPolicyArea selectedCards={confirmedCards} />
 
           <ConfirmDialog
