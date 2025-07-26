@@ -5,13 +5,13 @@ import { useGenreStore } from "@/stores/genreStore";
 import { useStanceStore } from "@/stores/stanceStore";
 import { useSegmentStore } from "@/stores/segmentStore";
 import { PolicyCard as RawPolicyCard } from "@/types";
-import SelectedPolicyArea from "@/components/SelectedPolicyArea";
+import AreaSelectedPolicy from "@/components/areas/AreaSelectedPolicy";
 import ConfirmDialog from "@/components/dialogs/ConfirmDialog";
 import SelectImportantPolicy from "@/components/selects/SelectImportantPolicy";
 import SelectPolicy from "@/components/selects/SelectPolicy";
-import TitleScreen from "@/components/TitleScreen";
-import VoterSegments from "@/components/VoterSegments";
-import EvaluateSection from "@/components/evals/EvaluateSection";
+import AreaTitleScreen from "@/components/areas/AreaTitleScreen";
+import AreaVoterSegments from "@/components/areas/AreaVoterSegments";
+import AreaEvaluateSection from "@/components/evals/EvaluateSection";
 
 export default function CardsPage() {
   const [sessionId, setSessionId] = useState<string | null>(null);
@@ -112,7 +112,7 @@ export default function CardsPage() {
     <>
       {!started ? (
         <main className="p-4">
-          <TitleScreen onStart={() => setStarted(true)} />
+          <AreaTitleScreen onStart={() => setStarted(true)} />
         </main>
       ) : (
         <main className="p-6 mt-25 mb-70">
@@ -128,12 +128,12 @@ export default function CardsPage() {
               }}
             />
           ) : (
-            <EvaluateSection selectedCards={confirmedCards} />
+            <AreaEvaluateSection selectedCards={confirmedCards} />
           )}
 
-          <VoterSegments />
+          <AreaVoterSegments />
 
-          <SelectedPolicyArea selectedCards={confirmedCards} />
+          <AreaSelectedPolicy selectedCards={confirmedCards} />
 
           <ConfirmDialog
             open={!!pendingCard}

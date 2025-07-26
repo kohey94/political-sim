@@ -50,14 +50,6 @@ export type DisplayPolicyCard = {
   };
 };
 
-export type VoterSegmentId =
-  | "conservative"
-  | "liberal"
-  | "economic"
-  | "welfare"
-  | "environment"
-  | "independent";
-
 export interface SelectedPolicy {
   id: string;
   title: string;
@@ -71,7 +63,11 @@ export interface EvaluateRequest {
 }
 
 export interface EvaluateResponse {
-  score: number; // 得票率（0〜100）
+  totalScore: number; // 得票率（0〜100）
+  segmentScores: {
+    stance_id: number;
+    score: number; // 各層ごとの得点 (0-100)
+  }[];
 }
 
 export type SegmentInfo = {

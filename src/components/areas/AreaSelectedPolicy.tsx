@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { PolicyCard as RawPolicyCard } from "@/types";
-import MiniPolicyCard from "./cards/MiniPolicyCard";
-import ConfirmDialog from "./dialogs/ConfirmDialog";
+import MiniPolicyCard from "../cards/MiniPolicyCard";
+import ConfirmDialog from "../dialogs/ConfirmDialog";
 import { useStanceStore } from "@/stores/stanceStore";
 
 interface Props {
