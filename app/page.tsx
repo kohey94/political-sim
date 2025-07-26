@@ -11,7 +11,7 @@ import SelectImportantPolicy from "@/components/selects/SelectImportantPolicy";
 import SelectPolicy from "@/components/selects/SelectPolicy";
 import TitleScreen from "@/components/TitleScreen";
 import VoterSegments from "@/components/VoterSegments";
-import EvaluateSection from "@/components/EvaluateSection";
+import EvaluateSection from "@/components/evals/EvaluateSection";
 
 export default function CardsPage() {
   const [sessionId, setSessionId] = useState<string | null>(null);

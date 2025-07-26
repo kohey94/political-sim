@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PolicyCard, SelectedPolicy } from "@/types";
-import ElectionResult from "@/components/ElectionResult";
+import ElectionResult from "@/components/evals/ElectionResult";
 
 interface Props {
   selectedCards: PolicyCard[];

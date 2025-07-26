@@ -39,10 +39,7 @@ export default function VoterSegments() {
         <div className="flex flex-wrap gap-4 justify-center text-sm">
           {segments.map(segment => (
             <div key={segment.segment_id} className="flex items-center gap-1">
-              <div
-                className="w-3 h-3 rounded-sm"
-                style={{ backgroundColor: getTailwindColorHex(segment.segment_color) }}
-              />
+              <div className={`w-3 h-3 rounded-sm ${segment.segment_color}`} />
               <span>
                 {stanceNameMap[segment.stance_id.toString()] ?? "不明"}:
                 {Number(segment.ratio).toFixed(0)}%
