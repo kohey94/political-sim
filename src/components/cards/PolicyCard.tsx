@@ -56,6 +56,7 @@ const PolicyCard: React.FC<Props> = ({ card, isSelected, onSelect }) => {
           width={256} // 必須
           height={96} // 必須
           className="object-contain h-full"
+          priority
         />
       </div>
 
