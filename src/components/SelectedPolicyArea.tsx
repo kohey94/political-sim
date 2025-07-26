@@ -1,32 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { PolicyCard as RawPolicyCard, PoliticalStance } from "@/types";
+import { useState } from "react";
+import { PolicyCard as RawPolicyCard } from "@/types";
 import MiniPolicyCard from "./MiniPolicyCard";
 import ConfirmDialog from "./ConfirmDialog";
+import { useStanceStore } from "@/stores/stanceStore";
 
 interface Props {
   selectedCards: RawPolicyCard[];
-  genreMap: { [genre_id: string]: string };
 }
 
-export default function SelectedPolicyArea({ selectedCards, genreMap }: Props) {
-  const [stances, setStances] = useState<PoliticalStance[]>([]);
+export default function SelectedPolicyArea({ selectedCards }: Props) {
   const [previewCard, setPreviewCard] = useState<RawPolicyCard | null>(null);
-
-  useEffect(() => {
-    const load = async () => {
-      const stanceRes = await fetch("/data/m_political_stance.json");
-      if (!stanceRes.ok) {
-        console.error("スタンスファイル読み込み失敗");
-        return;
-      }
-      const stanceData = await stanceRes.json();
-      setStances(stanceData);
-    };
-
-    load();
-  }, []);
+  const { stances } = useStanceStore();
 
   // 合計スタンスと実現性
   const totalPoints = selectedCards.reduce(
@@ -79,7 +65,6 @@ export default function SelectedPolicyArea({ selectedCards, genreMap }: Props) {
         open={!!previewCard}
         onCancel={() => setPreviewCard(null)}
         card={previewCard}
-        genreMap={genreMap}
         isConfirmButtons={true}
       />
     </div>

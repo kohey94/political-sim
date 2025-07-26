@@ -4,7 +4,7 @@ import { PolicyCard as RawPolicyCard } from "@/types";
 import DisplayPolicyCards from "@/components/DisplayPolicyCards";
 
 interface Props {
-  allCards: RawPolicyCard[]; // 3枚のみ
+  allCards: RawPolicyCard[];
   turn: number;
   onSelect: (card: RawPolicyCard) => void;
 }

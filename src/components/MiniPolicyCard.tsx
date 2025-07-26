@@ -2,6 +2,7 @@
 
 import { PolicyCard as RawPolicyCard } from "@/types";
 import { useGenreStore } from "@/stores/genreStore";
+import { useStanceStore } from "@/stores/stanceStore";
 
 interface Props {
   card: RawPolicyCard;
@@ -9,11 +10,12 @@ interface Props {
 
 export default function MiniPolicyCard({ card }: Props) {
   const { genreMap } = useGenreStore();
-  const stanceMap = Object.fromEntries(
+  const { stanceOrder } = useStanceStore();
+
+  // stance_idに対応したpointを取得するためのmap
+  const stancePointMap = Object.fromEntries(
     card.stance_points.map(sp => [sp.stance_id.toString(), sp.point])
   );
-
-  const stanceOrder = ["1", "2", "3", "4", "5", "6"]; // 保,リ,経,福,環,無
 
   return (
     <div
@@ -38,7 +40,7 @@ export default function MiniPolicyCard({ card }: Props) {
             key={i}
             className="border text-[14px] p-[3px] bg-zinc-100 rounded flex items-center justify-center"
           >
-            {stanceMap[stanceId] ?? 0}
+            {stancePointMap[stanceId] ?? 0}
           </div>
         ))}
       </div>

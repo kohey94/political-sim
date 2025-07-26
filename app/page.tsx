@@ -137,7 +137,7 @@ export default function CardsPage() {
             </>
           )}
 
-          <SelectedPolicyArea selectedCards={confirmedCards} genreMap={genreMap} />
+          <SelectedPolicyArea selectedCards={confirmedCards} />
 
           <ConfirmDialog
             open={!!pendingCard}

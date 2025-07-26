@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { PolicyCard as RawPolicyCard } from "@/types";
 import { useGenreStore } from "@/stores/genreStore";
 import { useStanceStore } from "@/stores/stanceStore";
@@ -12,17 +12,13 @@ interface Props {
 }
 
 const PolicyCard: React.FC<Props> = ({ card, isSelected, onSelect }) => {
-  const [stanceMap, setStanceMap] = useState<Record<string, number>>({}); // stance_id → point
   const { genreMap } = useGenreStore();
   const { stanceLabelMap, stanceOrder } = useStanceStore();
 
-  useEffect(() => {
-    // stance_idとpointのマッピング
-    const pointMap = Object.fromEntries(
-      card.stance_points.map(sp => [sp.stance_id.toString(), sp.point])
-    );
-    setStanceMap(pointMap);
-  }, [card]);
+  // stance_idに対応したpointを取得するためのmap
+  const stancePointMap = Object.fromEntries(
+    card.stance_points.map(sp => [sp.stance_id.toString(), sp.point])
+  );
 
   return (
     <div
@@ -75,7 +71,7 @@ const PolicyCard: React.FC<Props> = ({ card, isSelected, onSelect }) => {
           <div key={stanceId} className="py-1 border-r border-gray-200 last:border-r-0">
             <span className="font-semibold">{stanceLabelMap[stanceId] ?? "?"}</span>
             <br />
-            {stanceMap[stanceId] ?? 0}
+            {stancePointMap[stanceId] ?? 0}
           </div>
         ))}
       </div>
