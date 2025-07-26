@@ -9,9 +9,10 @@ export async function POST(req: Request): Promise<NextResponse<EvaluateResponse>
     const baseUrl =
       process.env.BASE_URL ??
       (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.BASE_URL}`);
-    const res = await fetch(`${baseUrl}/api/segments`, {
-      cache: "no-store",
-    });
+    const res = await fetch(`${baseUrl}/api/segments`);
+    if (!res.ok) {
+      throw new Error("Failed to fetch segments");
+    }
     const segmentData: SegmentInfo[] = await res.json();
 
     const { totalScore, segmentScores } = calculateScoreFromSegments(
