@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { PolicyCard } from "@/types";
 import DisplayPolicyCards from "./DisplayPolicyCards";
-import ConfirmDialog from "./ConfirmDialog";
+import ConfirmDialog from "../dialogs/ConfirmDialog";
 import { useGenreStore } from "@/stores/genreStore";
 
 interface Props {

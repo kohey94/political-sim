@@ -1,7 +1,7 @@
 "use client";
 
 import { PolicyCard as RawPolicyCard } from "@/types";
-import PolicyCard from "./PolicyCard";
+import PolicyCard from "../cards/PolicyCard";
 
 interface Props {
   allCards?: RawPolicyCard[]; // フィルタ済みカードを渡す

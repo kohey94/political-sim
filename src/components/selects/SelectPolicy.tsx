@@ -1,7 +1,7 @@
 "use client";
 
 import { PolicyCard as RawPolicyCard } from "@/types";
-import DisplayPolicyCards from "@/components/DisplayPolicyCards";
+import DisplayPolicyCards from "@/components/selects/DisplayPolicyCards";
 
 interface Props {
   allCards: RawPolicyCard[];

@@ -6,9 +6,9 @@ import { useStanceStore } from "@/stores/stanceStore";
 import { useSegmentStore } from "@/stores/segmentStore";
 import { PolicyCard as RawPolicyCard } from "@/types";
 import SelectedPolicyArea from "@/components/SelectedPolicyArea";
-import ConfirmDialog from "@/components/ConfirmDialog";
-import SelectImportantPolicy from "@/components/SelectImportantPolicy";
-import SelectPolicy from "@/components/SelectPolicy";
+import ConfirmDialog from "@/components/dialogs/ConfirmDialog";
+import SelectImportantPolicy from "@/components/selects/SelectImportantPolicy";
+import SelectPolicy from "@/components/selects/SelectPolicy";
 import TitleScreen from "@/components/TitleScreen";
 import VoterSegments from "@/components/VoterSegments";
 

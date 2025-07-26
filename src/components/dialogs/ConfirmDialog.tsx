@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 import { PolicyCard as RawPolicyCard } from "@/types";
-import PolicyCard from "./PolicyCard";
+import PolicyCard from "../cards/PolicyCard";
 
 interface ConfirmDialogProps {
   open: boolean;
