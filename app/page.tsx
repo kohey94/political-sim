@@ -12,6 +12,9 @@ import SelectPolicy from "@/components/selects/SelectPolicy";
 import AreaTitleScreen from "@/components/areas/AreaTitleScreen";
 import AreaVoterSegments from "@/components/areas/AreaVoterSegments";
 import AreaEvaluateSection from "@/components/evals/EvaluateSection";
+import { getBaseUrl } from "@/lib/getBaseUrl";
+
+const baseUrl = getBaseUrl();
 
 export default function CardsPage() {
   const [sessionId, setSessionId] = useState<string | null>(null);
@@ -29,7 +32,7 @@ export default function CardsPage() {
   useEffect(() => {
     if (!genreLoaded) {
       const fetchGenres = async () => {
-        const res = await fetch("api/genres");
+        const res = await fetch(`${baseUrl}/api/genres`);
         const data = await res.json();
         setGenres(data);
       };
@@ -39,7 +42,7 @@ export default function CardsPage() {
 
   useEffect(() => {
     const fetchStances = async () => {
-      const res = await fetch("/api/stances");
+      const res = await fetch(`${baseUrl}/api/stances`);
       const data = await res.json();
       setStances(data);
     };
@@ -49,7 +52,7 @@ export default function CardsPage() {
   useEffect(() => {
     if (!segmentLoaded) {
       const fetchSegments = async () => {
-        const res = await fetch("/api/segments");
+        const res = await fetch(`${baseUrl}/api/segments`);
         const data = await res.json();
         setSegments(data);
       };
@@ -62,7 +65,7 @@ export default function CardsPage() {
     setConfirmedCards([card]);
     setImportantGenreId(genreId);
 
-    const res = await fetch("/api/initCards", {
+    const res = await fetch(`${baseUrl}/api/initCards`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -75,7 +78,7 @@ export default function CardsPage() {
     setSessionId(newSessionId);
 
     // 初回カード3枚を取得（turn=1）
-    const nextRes = await fetch(`/api/cards?sessionId=${newSessionId}&turn=1`);
+    const nextRes = await fetch(`${baseUrl}/api/cards?sessionId=${newSessionId}&turn=1`);
 
     const nextData = await nextRes.json();
     setCandidateCards(nextData);
@@ -88,7 +91,7 @@ export default function CardsPage() {
       if (!sessionId || !importantGenreId) return;
       if (confirmedCards.length === 0 || confirmedCards.length >= 6) return;
 
-      const res = await fetch(`/api/cards?sessionId=${sessionId}&turn=${turn}`);
+      const res = await fetch(`${baseUrl}/api/cards?sessionId=${sessionId}&turn=${turn}`);
       const data = await res.json();
       setCandidateCards(data);
     };

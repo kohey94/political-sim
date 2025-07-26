@@ -5,6 +5,9 @@ import { PolicyCard } from "@/types";
 import DisplayPolicyCards from "./DisplayPolicyCards";
 import ConfirmDialog from "../dialogs/ConfirmDialog";
 import { useGenreStore } from "@/stores/genreStore";
+import { getBaseUrl } from "@/lib/getBaseUrl";
+
+const baseUrl = getBaseUrl();
 
 interface Props {
   onConfirm: (card: PolicyCard, genreId: string) => void;
@@ -20,7 +23,7 @@ export default function SelectImportantPolicy({ onConfirm }: Props) {
   useEffect(() => {
     if (selectedGenreId) {
       const fetchCards = async () => {
-        const res = await fetch(`/api/cards/important?genreId=${selectedGenreId}`);
+        const res = await fetch(`${baseUrl}/api/cards/important?genreId=${selectedGenreId}`);
         const data = await res.json();
         setCards(data);
       };

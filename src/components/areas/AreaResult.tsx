@@ -26,8 +26,7 @@ export default function ElectionResult({ voteRate, segmentScores }: ElectionResu
     if (rate < 66) return "bg-blue-500";
     return "bg-green-600";
   };
-  console.log(stances);
-  console.log(segmentScores);
+
   return (
     <div className="w-full max-w-2xl mx-auto text-center mt-10 space-y-6">
       <div className="text-2xl font-semibold">{getResultText(voteRate)}</div>

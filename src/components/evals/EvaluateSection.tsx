@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import { PolicyCard, SelectedPolicy, EvaluateResponse } from "@/types";
-import { useStanceStore } from "@/stores/stanceStore";
+
 import ElectionResult from "../areas/AreaResult";
+import { getBaseUrl } from "@/lib/getBaseUrl";
+
+const baseUrl = getBaseUrl();
 
 interface Props {
   selectedCards: PolicyCard[];
@@ -12,7 +15,6 @@ interface Props {
 export default function EvaluateSection({ selectedCards }: Props) {
   const [result, setResult] = useState<EvaluateResponse | null>(null);
   const [loading, setLoading] = useState(false);
-  const { stances } = useStanceStore();
 
   const mostImportantPolicyId = selectedCards[0]?.card_id ?? "";
 
@@ -33,7 +35,7 @@ export default function EvaluateSection({ selectedCards }: Props) {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/evaluate", {
+      const res = await fetch(`${baseUrl}/api/evaluate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
