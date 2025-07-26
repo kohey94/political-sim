@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
 import { EvaluateRequest, EvaluateResponse, SegmentInfo } from "@/types";
 import { calculateScoreFromSegments } from "@/lib/scoring";
-import { getBaseUrl } from "@/lib/getBaseUrl";
 
 export async function POST(req: Request): Promise<NextResponse<EvaluateResponse>> {
   try {
     const { mostImportantPolicyId, selectedPolicies }: EvaluateRequest = await req.json();
 
-    const baseUrl = getBaseUrl();
+    const baseUrl =
+      process.env.BASE_URL ??
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.BASE_URL}`);
     const res = await fetch(`${baseUrl}/api/segments`, {
       cache: "no-store",
     });
