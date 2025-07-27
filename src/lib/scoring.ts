@@ -52,7 +52,7 @@ export function calculateScoreFromSegments(
   // スコアの初期計算
   let segmentScores = Object.entries(totalImpact).map(([stanceIdStr, val]) => {
     const stanceId = Number(stanceIdStr);
-    const score = Math.round(((val + 12) / 24) * 100);
+    const score = Math.round((val / 24) * 100);
     return { stance_id: stanceId, score };
   });
 
@@ -118,7 +118,7 @@ export function calculateScoreFromSegments(
     return sum + val * ratio;
   }, 0);
 
-  const stanceScore = ((totalImpactScore + 12) / 24) * 100;
+  const stanceScore = (totalImpactScore / 24) * 100;
   const totalScore = Math.round(Math.max(0, Math.min(100, stanceScore)));
 
   return { totalScore, segmentScores };
