@@ -5,13 +5,13 @@
     "genre_id": 1,
     "policy_name": "防衛費増額",
     "description": "防衛費を増やし、軍備を強化する。",
-    "feasibility": 3,
+    "feasibility": 4,
     "stance_points": [
       { "stance_id": 1, "point": 2 },
       { "stance_id": 2, "point": -2 },
       { "stance_id": 3, "point": 0 },
-      { "stance_id": 4, "point": -1 },
-      { "stance_id": 5, "point": -2 },
+      { "stance_id": 4, "point": 0 },
+      { "stance_id": 5, "point": 0 },
       { "stance_id": 6, "point": 0 }
     ]
   },
@@ -21,13 +21,13 @@
     "genre_id": 1,
     "policy_name": "憲法改正",
     "description": "憲法を変えて自衛隊の正当性を明文化する。",
-    "feasibility": 1,
+    "feasibility": 0,
     "stance_points": [
-      { "stance_id": 1, "point": 1 },
+      { "stance_id": 1, "point": 2 },
       { "stance_id": 2, "point": -2 },
       { "stance_id": 3, "point": -1 },
       { "stance_id": 4, "point": -1 },
-      { "stance_id": 5, "point": -2 },
+      { "stance_id": 5, "point": -1 },
       { "stance_id": 6, "point": 0 }
     ]
   },
@@ -51,15 +51,15 @@
     "expansion": 1,
     "card_id": 4,
     "genre_id": 1,
-    "policy_name": "国会議員定数減",
-    "description": "国会議員定数を削減して政治コストを削減する。",
+    "policy_name": "国会議員定数削減",
+    "description": "国会議員定数を減らして政治コストを削減する。",
     "feasibility": 2,
     "stance_points": [
       { "stance_id": 1, "point": -2 },
       { "stance_id": 2, "point": 0 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": 0 },
+      { "stance_id": 5, "point": 1 },
       { "stance_id": 6, "point": 2 }
     ]
   },
@@ -69,14 +69,14 @@
     "genre_id": 1,
     "policy_name": "公務員給料減額",
     "description": "公務員給与を減らし財政を引き締める。",
-    "feasibility": 2,
+    "feasibility": 3,
     "stance_points": [
-      { "stance_id": 1, "point": -1 },
+      { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": 1 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 2 }
+      { "stance_id": 6, "point": 0 }
     ]
   },
   {
@@ -100,7 +100,7 @@
     "card_id": 7,
     "genre_id": 2,
     "policy_name": "ベーシックインカム導入",
-    "description": "ベーシックインカムを導入して全国民に定額給付する。",
+    "description": "ベーシックインカムを導入し全国民に定額給付する。",
     "feasibility": 0,
     "stance_points": [
       { "stance_id": 1, "point": -2 },
@@ -115,9 +115,9 @@
     "expansion": 1,
     "card_id": 8,
     "genre_id": 2,
-    "policy_name": "消費税減税",
+    "policy_name": "消費税廃止",
     "description": "消費税をゼロにして景気を刺激する。",
-    "feasibility": 1,
+    "feasibility": 0,
     "stance_points": [
       { "stance_id": 1, "point": -2 },
       { "stance_id": 2, "point": 1 },
@@ -196,28 +196,28 @@
     "expansion": 1,
     "card_id": 13,
     "genre_id": 3,
-    "policy_name": "育児支援",
-    "description": "子育て世代に給付金を支給する。",
-    "feasibility": 1,
+    "policy_name": "子育て支援の拡充",
+    "description": "児童手当の増額や出産費用の公的負担強化など、家庭の経済的支援を通じて少子化に対応する。",
+    "feasibility": 3,
     "stance_points": [
-      { "stance_id": 1, "point": -1 },
-      { "stance_id": 2, "point": 2 },
-      { "stance_id": 3, "point": -1 },
+      { "stance_id": 1, "point": 0 },
+      { "stance_id": 2, "point": 1 },
+      { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 2 },
-      { "stance_id": 5, "point": -1 },
-      { "stance_id": 6, "point": 1 }
+      { "stance_id": 5, "point": 0 },
+      { "stance_id": 6, "point": 0 }
     ]
   },
   {
     "expansion": 1,
     "card_id": 14,
     "genre_id": 3,
-    "policy_name": "高等教育完全無償化",
-    "description": "高校までにかかる費用を完全に無償化する。",
-    "feasibility": 1,
+    "policy_name": "福祉職待遇改善",
+    "description": "（画像）福祉現場の人材不足を解消するため、保育士・介護士の賃金を引き上げ、労働環境を整備する。",
+    "feasibility": 4,
     "stance_points": [
       { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 0 },
+      { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": -1 },
       { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 0 },
@@ -228,31 +228,31 @@
     "expansion": 1,
     "card_id": 15,
     "genre_id": 3,
-    "policy_name": "大学授業料無償化",
-    "description": "公立大学の授業料を無償化する。",
-    "feasibility": 1,
+    "policy_name": "障害者の就労・生活支援",
+    "description": "就労支援やバリアフリー整備など、障害のある人々の自立を支える環境を整備する。",
+    "feasibility": 2,
     "stance_points": [
-      { "stance_id": 1, "point": -1 },
+      { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 2 },
-      { "stance_id": 3, "point": -2 },
-      { "stance_id": 4, "point": 2 },
-      { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 1 }
+      { "stance_id": 3, "point": 0 },
+      { "stance_id": 4, "point": 1 },
+      { "stance_id": 5, "point": 1 },
+      { "stance_id": 6, "point": 0 }
     ]
   },
   {
     "expansion": 1,
     "card_id": 16,
     "genre_id": 3,
-    "policy_name": "奨学金返済免除",
-    "description": "条件付きで奨学金返済を免除する。",
-    "feasibility": 2,
+    "policy_name": "ヤングケアラー支援",
+    "description": "家族の介護・世話を担う子どもたちを支援する制度を整備し、学業や自立を妨げない環境を整える。",
+    "feasibility": 0,
     "stance_points": [
-      { "stance_id": 1, "point": -1 },
-      { "stance_id": 2, "point": 1 },
+      { "stance_id": 1, "point": 0 },
+      { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": -1 },
       { "stance_id": 4, "point": 2 },
-      { "stance_id": 5, "point": -1 },
+      { "stance_id": 5, "point": 1 },
       { "stance_id": 6, "point": 1 }
     ]
   },
@@ -260,11 +260,27 @@
     "expansion": 1,
     "card_id": 17,
     "genre_id": 3,
-    "policy_name": "教員負担減",
-    "description": "教員の労働時間に上限を設ける。",
+    "policy_name": "生活困窮者への支援強化",
+    "description": "住居支援や最低所得保障制度の整備により、生活基盤の安定を目指す。",
+    "feasibility": 1,
+    "stance_points": [
+      { "stance_id": 1, "point": -1 },
+      { "stance_id": 2, "point": 2 },
+      { "stance_id": 3, "point": -1 },
+      { "stance_id": 4, "point": 2 },
+      { "stance_id": 5, "point": 1 },
+      { "stance_id": 6, "point": 1 }
+    ]
+  },
+  {
+    "expansion": 1,
+    "card_id": 18,
+    "genre_id": 3,
+    "policy_name": "高齢者介護の強化",
+    "description": "介護人材への支援や在宅介護の充実により、安心して老後を過ごせる社会を実現する。",
     "feasibility": 3,
     "stance_points": [
-      { "stance_id": 1, "point": 0 },
+      { "stance_id": 1, "point": 1 },
       { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 1 },
@@ -272,117 +288,101 @@
       { "stance_id": 6, "point": 0 }
     ]
   },
-  {
-    "expansion": 1,
-    "card_id": 18,
-    "genre_id": 3,
-    "policy_name": "高齢者医療費減額",
-    "description": "高齢者の医療自己負担を軽減する。",
-    "feasibility": 2,
-    "stance_points": [
-      { "stance_id": 1, "point": 1 },
-      { "stance_id": 2, "point": 0 },
-      { "stance_id": 3, "point": -1 },
-      { "stance_id": 4, "point": 1 },
-      { "stance_id": 5, "point": -1 },
-      { "stance_id": 6, "point": 2 }
-    ]
-  },
 
   {
     "expansion": 1,
     "card_id": 19,
     "genre_id": 4,
-    "policy_name": "原発廃止",
-    "description": "脱原発に向けた計画を立てる。",
+    "policy_name": "原子力発電の段階的縮小",
+    "description": "安全性やコスト面を考慮しつつ、原子力発電への依存を段階的に減らしていく方針を取る。",
     "feasibility": 2,
     "stance_points": [
       { "stance_id": 1, "point": -1 },
-      { "stance_id": 2, "point": 1 },
+      { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": -2 },
-      { "stance_id": 4, "point": -1 },
+      { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 2 },
-      { "stance_id": 6, "point": 2 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
     "expansion": 1,
     "card_id": 20,
     "genre_id": 4,
-    "policy_name": "原発再稼働推進",
-    "description": "安全性を確認しつつ再稼働を推進する。",
-    "feasibility": 3,
+    "policy_name": "原発廃炉化",
+    "description": "すべての原子力発電所を即時停止し、廃炉へと移行する。",
+    "feasibility": 0,
     "stance_points": [
-      { "stance_id": 1, "point": 1 },
-      { "stance_id": 2, "point": -2 },
-      { "stance_id": 3, "point": 1 },
-      { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": -2 },
-      { "stance_id": 6, "point": 1 }
+      { "stance_id": 1, "point": -2 },
+      { "stance_id": 2, "point": 2 },
+      { "stance_id": 3, "point": -2 },
+      { "stance_id": 4, "point": 1 },
+      { "stance_id": 5, "point": 2 },
+      { "stance_id": 6, "point": 0 }
     ]
   },
   {
     "expansion": 1,
     "card_id": 21,
     "genre_id": 4,
-    "policy_name": "炭素税導入",
-    "description": "炭素税を導入して排出を抑える。",
-    "feasibility": 2,
+    "policy_name": "自然保護区域の大幅拡大",
+    "description": "生物多様性保全のため、全国の山・海・農地の多くを保護区指定し、経済活動を制限する。",
+    "feasibility": 1,
     "stance_points": [
       { "stance_id": 1, "point": -1 },
       { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": -2 },
-      { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": 2 },
-      { "stance_id": 6, "point": 2 }
-    ]
-  },
-  {
-    "expansion": 1,
-    "card_id": 22,
-    "genre_id": 4,
-    "policy_name": "再生可能エネルギー推進",
-    "description": "再エネ導入率に法的な義務を課す。",
-    "feasibility": 3,
-    "stance_points": [
-      { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 0 },
-      { "stance_id": 3, "point": 0 },
-      { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": 1 },
-      { "stance_id": 6, "point": 0 }
-    ]
-  },
-  {
-    "expansion": 1,
-    "card_id": 23,
-    "genre_id": 4,
-    "policy_name": "カーボンフリー推進",
-    "description": "カーボンフリー技術に研究開発費を投入する。",
-    "feasibility": 4,
-    "stance_points": [
-      { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 2 },
-      { "stance_id": 3, "point": 0 },
-      { "stance_id": 4, "point": 0 },
+      { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 2 },
       { "stance_id": 6, "point": 1 }
     ]
   },
   {
     "expansion": 1,
+    "card_id": 22,
+    "genre_id": 4,
+    "policy_name": "再生可能エネルギーの主力化",
+    "description": "太陽光・風力・地熱などの再生可能エネルギーを主力電源に転換し、エネルギー自給率の向上を目指す。",
+    "feasibility": 2,
+    "stance_points": [
+      { "stance_id": 1, "point": -1 },
+      { "stance_id": 2, "point": 1 },
+      { "stance_id": 3, "point": 0 },
+      { "stance_id": 4, "point": 1 },
+      { "stance_id": 5, "point": 2 },
+      { "stance_id": 6, "point": 1 }
+    ]
+  },
+  {
+    "expansion": 1,
+    "card_id": 23,
+    "genre_id": 4,
+    "policy_name": "脱炭素社会の推進",
+    "description": "温室効果ガスの排出を段階的に削減し、2050年カーボンニュートラルを実現するための制度と投資を進める。",
+    "feasibility": 3,
+    "stance_points": [
+      { "stance_id": 1, "point": 0 },
+      { "stance_id": 2, "point": 1 },
+      { "stance_id": 3, "point": 0 },
+      { "stance_id": 4, "point": 1 },
+      { "stance_id": 5, "point": 1 },
+      { "stance_id": 6, "point": 0 }
+    ]
+  },
+  {
+    "expansion": 1,
     "card_id": 24,
     "genre_id": 4,
-    "policy_name": "ガソリン車販売規制",
-    "description": "ガソリン車の販売を一定年限で終了する。",
-    "feasibility": 1,
+    "policy_name": "次世代エネルギー技術活用",
+    "description": "水素・アンモニア・蓄電池などの次世代エネルギーを活用し、環境と産業の両立を図る。",
+    "feasibility": 4,
     "stance_points": [
-      { "stance_id": 1, "point": -2 },
-      { "stance_id": 2, "point": 2 },
-      { "stance_id": 3, "point": -2 },
-      { "stance_id": 4, "point": -1 },
-      { "stance_id": 5, "point": 2 },
-      { "stance_id": 6, "point": 2 }
+      { "stance_id": 1, "point": 1 },
+      { "stance_id": 2, "point": 1 },
+      { "stance_id": 3, "point": 2 },
+      { "stance_id": 4, "point": 0 },
+      { "stance_id": 5, "point": 1 },
+      { "stance_id": 6, "point": 0 }
     ]
   },
 
