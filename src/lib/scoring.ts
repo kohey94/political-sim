@@ -2,24 +2,24 @@ import { SelectedPolicy, EvaluateResponse, SegmentInfo } from "@/types";
 
 // 補正倍率定義（低実現性）
 const LOW_FEASIBILITY_MULTIPLIERS: Record<number, number> = {
-  1: 0.3, // 保守層
-  2: 0.3, // リベラル層
-  3: 0.6,
-  4: 0.6,
-  5: 0.6,
+  1: 0.4, // 保守層
+  2: 0.4, // リベラル層
+  3: 0.5,
+  4: 0.5,
+  5: 0.5,
   6: 0.5, // 無党派層
 };
 
 // 最高実現性時の条件別倍率設定
 const HIGH_FEASIBILITY_CONDITIONS = {
-  conservative: { 6: 1.3, 2: 0.7 },
-  liberal: { 1: 0.7, 6: 1.3 },
+  conservative: { 6: 1.5, 5: 0.8 },
+  liberal: { 6: 1.5, 1: 0.8 },
   economic: "boostLowest", // 特別ロジック
-  welfare: { 5: 1.2 },
-  environmental: { 4: 1.2 },
+  welfare: { 4: 1.3 },
+  environmental: { 3: 1.3 },
   independent: {
-    6: 0.2,
-    others: 1.3,
+    6: 0.4,
+    others: 1.8,
   },
 };
 export function calculateScoreFromSegments(
@@ -38,7 +38,7 @@ export function calculateScoreFromSegments(
   let feasibilitySum = 0;
 
   for (const policy of policies) {
-    const weight = policy.id === mostImportantId ? 1.3 : 1.0;
+    const weight = policy.id === mostImportantId ? 1.5 : 1.0;
 
     for (const stanceIdStr in policy.impacts) {
       const stanceId = Number(stanceIdStr);
@@ -68,7 +68,7 @@ export function calculateScoreFromSegments(
     });
   }
 
-  if (feasibilitySum >= 18) {
+  if (feasibilitySum >= 16) {
     // 高実現性 → 支持率最大の層を判定して条件分岐
     const top = [...segmentScores].sort((a, b) => b.score - a.score)[0];
 
@@ -84,7 +84,7 @@ export function calculateScoreFromSegments(
         const min = [...segmentScores].sort((a, b) => a.score - b.score)[0];
         segmentScores = segmentScores.map(seg =>
           seg.stance_id === min.stance_id
-            ? { ...seg, score: Math.min(100, Math.round(seg.score * 1.15)) }
+            ? { ...seg, score: Math.min(100, Math.round(seg.score * 1.4)) }
             : seg
         );
         break;

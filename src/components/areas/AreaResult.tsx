@@ -12,12 +12,14 @@ export default function ElectionResult({ voteRate, segmentScores }: ElectionResu
   const { stances } = useStanceStore();
 
   const getResultText = (rate: number): string => {
-    if (rate < 10) return "支持を得られず惨敗";
-    if (rate < 25) return "議席獲得ならず";
-    if (rate < 40) return "一部の支持を得るが届かず";
-    if (rate < 51) return "議席を獲得するも過半数に届かず";
-    if (rate < 66) return "単独過半数で政権獲得！";
-    return "圧勝！安定多数で政権掌握！";
+    if (rate < 5) return "支持を得られず惨敗...。ほぼ無風の泡沫候補だった。";
+    if (rate < 10) return "ごくわずかに支持が集まるが、議席獲得には至らず。";
+    if (rate < 15) return "1議席を獲得。個人の発信力が光る。";
+    if (rate < 25) return "複数議席を獲得し、存在感を放つ政党に。";
+    if (rate < 35) return "政党要件を満たし本格的な政党となる。";
+    if (rate < 50) return "世論の支持を得て、中堅政党として影響力を拡大する！";
+    if (rate < 66) return "単独過半数で政権獲得！与党第一党に。";
+    return "圧勝！安定多数で政権を掌握。改革を思いのままに進められる！";
   };
 
   const getBarColor = (rate: number): string => {

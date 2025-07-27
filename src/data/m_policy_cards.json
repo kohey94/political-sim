@@ -7,7 +7,7 @@
     "description": "周辺情勢に対応するため、防衛費を段階的に増やし、装備・人材・研究開発を強化する。",
     "feasibility": 4,
     "stance_points": [
-      { "stance_id": 1, "point": 2 },
+      { "stance_id": 1, "point": 3 },
       { "stance_id": 2, "point": 0 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
@@ -23,7 +23,7 @@
     "description": "行政文書の保管・公開ルールを厳格にし、政策決定過程の透明性を高める。",
     "feasibility": 3,
     "stance_points": [
-      { "stance_id": 1, "point": 0 },
+      { "stance_id": 1, "point": 1 },
       { "stance_id": 2, "point": 0 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
@@ -60,7 +60,7 @@
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 1 },
-      { "stance_id": 6, "point": 1 }
+      { "stance_id": 6, "point": 3 }
     ]
   },
   {
@@ -106,7 +106,7 @@
       { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": 0 },
-      { "stance_id": 4, "point": 0 },
+      { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 0 },
       { "stance_id": 6, "point": 0 }
     ]
@@ -121,7 +121,7 @@
     "stance_points": [
       { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 1 },
-      { "stance_id": 3, "point": 0 },
+      { "stance_id": 3, "point": 1 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 2 },
       { "stance_id": 6, "point": 1 }
@@ -140,7 +140,7 @@
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 0 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -169,10 +169,10 @@
     "stance_points": [
       { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 0 },
-      { "stance_id": 3, "point": 0 },
+      { "stance_id": 3, "point": 2 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 3 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 4 }
     ]
   },
   {
@@ -203,7 +203,7 @@
       { "stance_id": 2, "point": 0 },
       { "stance_id": 3, "point": 2 },
       { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": 0 },
+      { "stance_id": 5, "point": 1 },
       { "stance_id": 6, "point": 0 }
     ]
   },
@@ -217,7 +217,7 @@
     "stance_points": [
       { "stance_id": 1, "point": 1 },
       { "stance_id": 2, "point": 0 },
-      { "stance_id": 3, "point": 2 },
+      { "stance_id": 3, "point": 3 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 1 },
       { "stance_id": 6, "point": 0 }
@@ -235,7 +235,7 @@
       { "stance_id": 2, "point": 0 },
       { "stance_id": 3, "point": 1 },
       { "stance_id": 4, "point": 1 },
-      { "stance_id": 5, "point": 0 },
+      { "stance_id": 5, "point": 1 },
       { "stance_id": 6, "point": 1 }
     ]
   },
@@ -249,8 +249,8 @@
     "stance_points": [
       { "stance_id": 1, "point": 1 },
       { "stance_id": 2, "point": 0 },
-      { "stance_id": 3, "point": 2 },
-      { "stance_id": 4, "point": 1 },
+      { "stance_id": 3, "point": 3 },
+      { "stance_id": 4, "point": 2 },
       { "stance_id": 5, "point": 1 },
       { "stance_id": 6, "point": 0 }
     ]
@@ -264,9 +264,9 @@
     "description": "住居支援や最低所得保障制度の整備により、生活基盤の安定を目指す。",
     "feasibility": 1,
     "stance_points": [
-      { "stance_id": 1, "point": 0 },
+      { "stance_id": 1, "point": 1 },
       { "stance_id": 2, "point": 0 },
-      { "stance_id": 3, "point": 3 },
+      { "stance_id": 3, "point": 4 },
       { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 3 },
       { "stance_id": 6, "point": 1 }
@@ -283,7 +283,7 @@
       { "stance_id": 1, "point": 1 },
       { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": 4 },
-      { "stance_id": 4, "point": 2 },
+      { "stance_id": 4, "point": 3 },
       { "stance_id": 5, "point": 4 },
       { "stance_id": 6, "point": 3 }
     ]
@@ -297,7 +297,7 @@
     "feasibility": 4,
     "stance_points": [
       { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 0 },
+      { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 2 },
       { "stance_id": 5, "point": 0 },
@@ -315,7 +315,7 @@
       { "stance_id": 1, "point": 1 },
       { "stance_id": 2, "point": 0 },
       { "stance_id": 3, "point": 1 },
-      { "stance_id": 4, "point": 2 },
+      { "stance_id": 4, "point": 3 },
       { "stance_id": 5, "point": 0 },
       { "stance_id": 6, "point": 0 }
     ]
@@ -332,7 +332,7 @@
       { "stance_id": 2, "point": 0 },
       { "stance_id": 3, "point": 1 },
       { "stance_id": 4, "point": 3 },
-      { "stance_id": 5, "point": 2 },
+      { "stance_id": 5, "point": 3 },
       { "stance_id": 6, "point": 0 }
     ]
   },
@@ -346,8 +346,8 @@
     "feasibility": 2,
     "stance_points": [
       { "stance_id": 1, "point": 1 },
-      { "stance_id": 2, "point": 0 },
-      { "stance_id": 3, "point": 2 },
+      { "stance_id": 2, "point": 3 },
+      { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 2 },
       { "stance_id": 5, "point": 1 },
       { "stance_id": 6, "point": 0 }
@@ -379,10 +379,10 @@
     "stance_points": [
       { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 0 },
-      { "stance_id": 3, "point": 3 },
+      { "stance_id": 3, "point": 4 },
       { "stance_id": 4, "point": 4 },
       { "stance_id": 5, "point": 4 },
-      { "stance_id": 6, "point": 2 }
+      { "stance_id": 6, "point": 3 }
     ]
   },
 
@@ -395,7 +395,7 @@
     "feasibility": 4,
     "stance_points": [
       { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 0 },
+      { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 2 },
@@ -414,7 +414,7 @@
       { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": 2 },
+      { "stance_id": 5, "point": 3 },
       { "stance_id": 6, "point": 1 }
     ]
   },
@@ -426,11 +426,11 @@
     "description": "政治的干渉から独立した報道と、個人の表現の自由を守る法的枠組みを強化する。",
     "feasibility": 2,
     "stance_points": [
-      { "stance_id": 1, "point": 1 },
+      { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 0 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 1 },
-      { "stance_id": 5, "point": 1 },
+      { "stance_id": 5, "point": 3 },
       { "stance_id": 6, "point": 3 }
     ]
   },
@@ -443,11 +443,11 @@
     "feasibility": 2,
     "stance_points": [
       { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 0 },
-      { "stance_id": 3, "point": 1 },
+      { "stance_id": 2, "point": 1 },
+      { "stance_id": 3, "point": 2 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 3 },
-      { "stance_id": 6, "point": 3 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -460,7 +460,7 @@
     "stance_points": [
       { "stance_id": 1, "point": 0 },
       { "stance_id": 2, "point": 0 },
-      { "stance_id": 3, "point": 1 },
+      { "stance_id": 3, "point": 2 },
       { "stance_id": 4, "point": 0 },
       { "stance_id": 5, "point": 4 },
       { "stance_id": 6, "point": 2 }
@@ -475,7 +475,7 @@
     "feasibility": 0,
     "stance_points": [
       { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 1 },
+      { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": 3 },
       { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 4 },

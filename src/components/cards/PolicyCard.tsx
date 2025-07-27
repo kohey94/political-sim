@@ -36,7 +36,7 @@ const PolicyCard: React.FC<Props> = ({ card, isSelected, onSelect }) => {
       {/* カード名 & 丸数字 */}
       <div className="relative h-8 flex items-center justify-center">
         <div className="absolute left-0 w-6 h-6 rounded-full bg-zinc-200 text-sm font-bold flex items-center justify-center text-black">
-          政
+          策
         </div>
         <div className="h-8 px-2 bg-zinc-200 border border-gray-300 rounded text-center font-bold w-[calc(100%-56px)] mx-[28px] overflow-hidden text-ellipsis whitespace-nowrap flex items-center justify-center text-[15px] leading-none">
           {card.policy_name}
