@@ -2,21 +2,24 @@ import { SelectedPolicy, EvaluateResponse, SegmentInfo } from "@/types";
 
 // 補正倍率定義（低実現性）
 const LOW_FEASIBILITY_MULTIPLIERS: Record<number, number> = {
-  1: 0.85, // 保守層
-  2: 0.9, // リベラル層
-  6: 1.05, // 無党派層
+  1: 0.3, // 保守層
+  2: 0.3, // リベラル層
+  3: 0.6,
+  4: 0.6,
+  5: 0.6,
+  6: 0.5, // 無党派層
 };
 
 // 最高実現性時の条件別倍率設定
 const HIGH_FEASIBILITY_CONDITIONS = {
-  conservative: { 6: 1.3, 2: 0.8 },
-  liberal: { 1: 0.8, 6: 1.3 },
+  conservative: { 6: 1.3, 2: 0.7 },
+  liberal: { 1: 0.7, 6: 1.3 },
   economic: "boostLowest", // 特別ロジック
   welfare: { 5: 1.2 },
   environmental: { 4: 1.2 },
   independent: {
-    6: 0.4,
-    others: 1.4,
+    6: 0.2,
+    others: 1.3,
   },
 };
 export function calculateScoreFromSegments(
