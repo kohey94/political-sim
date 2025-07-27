@@ -2,21 +2,21 @@ import { SelectedPolicy, EvaluateResponse, SegmentInfo } from "@/types";
 
 // 補正倍率定義（低実現性）
 const LOW_FEASIBILITY_MULTIPLIERS: Record<number, number> = {
-  1: 0.4, // 保守層
-  2: 0.4, // リベラル層
+  1: 0.2, // 保守層
+  2: 0.5,
   3: 0.5,
   4: 0.5,
-  5: 0.5,
-  6: 0.5, // 無党派層
+  5: 0.2, // リベラル層
+  6: 0.8, // 無党派層
 };
 
 // 最高実現性時の条件別倍率設定
 const HIGH_FEASIBILITY_CONDITIONS = {
-  conservative: { 6: 1.5, 5: 0.8 },
-  liberal: { 6: 1.5, 1: 0.8 },
+  conservative: { 1: 1.2, 6: 1.6 },
+  liberal: { 5: 1.2, 6: 1.6 },
   economic: "boostLowest", // 特別ロジック
-  welfare: { 4: 1.3 },
-  environmental: { 3: 1.3 },
+  welfare: { 3: 1.4, 4: 1.2 },
+  environmental: { 3: 1.4, 4: 1.2 },
   independent: {
     6: 0.4,
     others: 1.8,
@@ -84,7 +84,7 @@ export function calculateScoreFromSegments(
         const min = [...segmentScores].sort((a, b) => a.score - b.score)[0];
         segmentScores = segmentScores.map(seg =>
           seg.stance_id === min.stance_id
-            ? { ...seg, score: Math.min(100, Math.round(seg.score * 1.4)) }
+            ? { ...seg, score: Math.min(100, Math.round(seg.score * 1.8)) }
             : seg
         );
         break;
