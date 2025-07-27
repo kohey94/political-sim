@@ -3,16 +3,16 @@
     "expansion": 1,
     "card_id": 1,
     "genre_id": 1,
-    "policy_name": "防衛費増額",
-    "description": "防衛費を増やし、軍備を強化する。",
+    "policy_name": "防衛費引き上げ",
+    "description": "周辺情勢に対応するため、防衛費を段階的に増やし、装備・人材・研究開発を強化する。",
     "feasibility": 4,
     "stance_points": [
       { "stance_id": 1, "point": 2 },
       { "stance_id": 2, "point": -2 },
-      { "stance_id": 3, "point": 0 },
-      { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 0 }
+      { "stance_id": 3, "point": 1 },
+      { "stance_id": 4, "point": -1 },
+      { "stance_id": 5, "point": -1 },
+      { "stance_id": 6, "point": -1 }
     ]
   },
   {
@@ -20,8 +20,8 @@
     "card_id": 2,
     "genre_id": 1,
     "policy_name": "憲法改正",
-    "description": "憲法を変えて自衛隊の正当性を明文化する。",
-    "feasibility": 0,
+    "description": "現行の安全保障体制を明文化し、違憲論争を避けるために自衛隊を憲法上に位置づける。",
+    "feasibility": 2,
     "stance_points": [
       { "stance_id": 1, "point": 2 },
       { "stance_id": 2, "point": -2 },
@@ -35,48 +35,48 @@
     "expansion": 1,
     "card_id": 3,
     "genre_id": 1,
-    "policy_name": "海外製SNS規制",
-    "description": "海外製アプリを規制する。",
-    "feasibility": 1,
+    "policy_name": "行政情報公開法強化",
+    "description": "(画像)行政文書の保管・公開ルールを厳格にし、政策決定過程の透明性を高める。",
+    "feasibility": 3,
     "stance_points": [
-      { "stance_id": 1, "point": 2 },
-      { "stance_id": 2, "point": -1 },
-      { "stance_id": 3, "point": 0 },
-      { "stance_id": 4, "point": -1 },
+      { "stance_id": 1, "point": -1 },
+      { "stance_id": 2, "point": 2 },
+      { "stance_id": 3, "point": -1 },
+      { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": -2 }
+      { "stance_id": 6, "point": 2 }
     ]
   },
   {
     "expansion": 1,
     "card_id": 4,
     "genre_id": 1,
-    "policy_name": "国会議員定数削減",
-    "description": "国会議員定数を減らして政治コストを削減する。",
+    "policy_name": "中央省庁再編成",
+    "description": "複雑化した官庁制度を見直し、省庁の統廃合による効率化と政策整合性を図る。",
     "feasibility": 2,
     "stance_points": [
-      { "stance_id": 1, "point": -2 },
-      { "stance_id": 2, "point": 0 },
+      { "stance_id": 1, "point": 0 },
+      { "stance_id": 2, "point": -1 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": 1 },
-      { "stance_id": 6, "point": 2 }
+      { "stance_id": 5, "point": -1 },
+      { "stance_id": 6, "point": -1 }
     ]
   },
   {
     "expansion": 1,
     "card_id": 5,
     "genre_id": 1,
-    "policy_name": "公務員給料減額",
-    "description": "公務員給与を減らし財政を引き締める。",
-    "feasibility": 3,
+    "policy_name": "政党助成金制度廃止",
+    "description": "公金による政党支援を撤廃し、完全に寄付や会費による自主財源に切り替える。",
+    "feasibility": 0,
     "stance_points": [
-      { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 1 },
+      { "stance_id": 1, "point": 1 },
+      { "stance_id": 2, "point": -1 },
       { "stance_id": 3, "point": 1 },
-      { "stance_id": 4, "point": 0 },
+      { "stance_id": 4, "point": -1 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 0 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
@@ -84,7 +84,7 @@
     "card_id": 6,
     "genre_id": 1,
     "policy_name": "投票制度改正",
-    "description": "電子投票を導入し、若者の投票率向上を図る。",
+    "description": "憲法改正以外の重要な政策決定についても、国民投票で決める制度を広く導入する。",
     "feasibility": 1,
     "stance_points": [
       { "stance_id": 1, "point": -1 },
@@ -100,14 +100,14 @@
     "card_id": 7,
     "genre_id": 2,
     "policy_name": "ベーシックインカム導入",
-    "description": "ベーシックインカムを導入し全国民に定額給付する。",
+    "description": "すべての国民に一定額の所得を無条件で給付する制度を導入する。",
     "feasibility": 0,
     "stance_points": [
       { "stance_id": 1, "point": -2 },
       { "stance_id": 2, "point": 2 },
-      { "stance_id": 3, "point": -1 },
+      { "stance_id": 3, "point": -2 },
       { "stance_id": 4, "point": 2 },
-      { "stance_id": 5, "point": 0 },
+      { "stance_id": 5, "point": 1 },
       { "stance_id": 6, "point": 2 }
     ]
   },
@@ -115,30 +115,30 @@
     "expansion": 1,
     "card_id": 8,
     "genre_id": 2,
-    "policy_name": "消費税廃止",
-    "description": "消費税をゼロにして景気を刺激する。",
-    "feasibility": 0,
+    "policy_name": "消費税減税",
+    "description": "景気低迷や物価高対策として、消費税率を時限的に引き下げる。",
+    "feasibility": 2,
     "stance_points": [
       { "stance_id": 1, "point": -2 },
       { "stance_id": 2, "point": 1 },
-      { "stance_id": 3, "point": 0 },
-      { "stance_id": 4, "point": 1 },
-      { "stance_id": 5, "point": -1 },
-      { "stance_id": 6, "point": 2 }
+      { "stance_id": 3, "point": -1 },
+      { "stance_id": 4, "point": 2 },
+      { "stance_id": 5, "point": 0 },
+      { "stance_id": 6, "point": 1 }
     ]
   },
   {
     "expansion": 1,
     "card_id": 9,
     "genre_id": 2,
-    "policy_name": "法人税引き下げ",
-    "description": "企業の税負担を軽くして投資を促進する。",
+    "policy_name": "最低賃金引き上げ",
+    "description": "(画像)全国一律で最低賃金を段階的に引き上げ、労働者の生活の底上げを図る。",
     "feasibility": 3,
     "stance_points": [
-      { "stance_id": 1, "point": 1 },
-      { "stance_id": 2, "point": -1 },
-      { "stance_id": 3, "point": 2 },
-      { "stance_id": 4, "point": -1 },
+      { "stance_id": 1, "point": -1 },
+      { "stance_id": 2, "point": 0 },
+      { "stance_id": 3, "point": -1 },
+      { "stance_id": 4, "point": 2 },
       { "stance_id": 5, "point": -2 },
       { "stance_id": 6, "point": 1 }
     ]
@@ -147,48 +147,48 @@
     "expansion": 1,
     "card_id": 10,
     "genre_id": 2,
-    "policy_name": "大型インフラ整備",
-    "description": "高速道路や空港などに公共投資する。",
-    "feasibility": 2,
+    "policy_name": "公共インフラ整備",
+    "description": "老朽化した道路・橋・上下水道などの更新に、国主導で大規模な公共投資を行う。",
+    "feasibility": 4,
     "stance_points": [
-      { "stance_id": 1, "point": 1 },
-      { "stance_id": 2, "point": -1 },
+      { "stance_id": 1, "point": 2 },
+      { "stance_id": 2, "point": 0 },
       { "stance_id": 3, "point": 2 },
-      { "stance_id": 4, "point": -1 },
-      { "stance_id": 5, "point": -2 },
-      { "stance_id": 6, "point": 2 }
+      { "stance_id": 4, "point": 0 },
+      { "stance_id": 5, "point": 0 },
+      { "stance_id": 6, "point": 0 }
     ]
   },
   {
     "expansion": 1,
     "card_id": 11,
     "genre_id": 2,
-    "policy_name": "地方予算増額",
-    "description": "地方交付税を増やして地域活性化を図る。",
+    "policy_name": "同一労働同一賃金",
+    "description": "働き方改革を進め、短時間勤務や非正規雇用への待遇改善を制度化する。",
     "feasibility": 3,
     "stance_points": [
-      { "stance_id": 1, "point": 1 },
-      { "stance_id": 2, "point": 0 },
-      { "stance_id": 3, "point": 1 },
-      { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": -1 },
-      { "stance_id": 6, "point": 2 }
+      { "stance_id": 1, "point": -1 },
+      { "stance_id": 2, "point": 2 },
+      { "stance_id": 3, "point": -1 },
+      { "stance_id": 4, "point": 2 },
+      { "stance_id": 5, "point": 0 },
+      { "stance_id": 6, "point": 0 }
     ]
   },
   {
     "expansion": 1,
     "card_id": 12,
     "genre_id": 2,
-    "policy_name": "金融所得税増税",
-    "description": "金融所得への課税を強化し格差是正を図る。",
-    "feasibility": 2,
+    "policy_name": "法人税累進化",
+    "description": "利益規模に応じて法人税率を段階的に高くすることで、大企業により多くの負担を求める。",
+    "feasibility": 1,
     "stance_points": [
       { "stance_id": 1, "point": -2 },
       { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": -2 },
-      { "stance_id": 4, "point": 1 },
+      { "stance_id": 4, "point": 2 },
       { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 2 }
+      { "stance_id": 6, "point": 1 }
     ]
   },
 
@@ -341,7 +341,7 @@
     "expansion": 1,
     "card_id": 22,
     "genre_id": 4,
-    "policy_name": "再生可能エネルギーの主力化",
+    "policy_name": "再生可能エネルギー推進",
     "description": "太陽光・風力・地熱などの再生可能エネルギーを主力電源に転換し、エネルギー自給率の向上を目指す。",
     "feasibility": 2,
     "stance_points": [
@@ -357,7 +357,7 @@
     "expansion": 1,
     "card_id": 23,
     "genre_id": 4,
-    "policy_name": "脱炭素社会の推進",
+    "policy_name": "脱炭素社会推進",
     "description": "温室効果ガスの排出を段階的に削減し、2050年カーボンニュートラルを実現するための制度と投資を進める。",
     "feasibility": 3,
     "stance_points": [
@@ -390,11 +390,11 @@
     "expansion": 1,
     "card_id": 25,
     "genre_id": 5,
-    "policy_name": "同性婚制度推進",
-    "description": "同性婚を法的に認める。",
-    "feasibility": 2,
+    "policy_name": "ジェンダー平等推進",
+    "description": "性別に関わらず平等な機会を保障するため、賃金格差の是正や家庭制度の見直しを行う。",
+    "feasibility": 3,
     "stance_points": [
-      { "stance_id": 1, "point": 0 },
+      { "stance_id": 1, "point": -2 },
       { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 0 },
@@ -407,13 +407,13 @@
     "card_id": 26,
     "genre_id": 5,
     "policy_name": "選択的夫婦別姓推進",
-    "description": "結婚後も別姓を選べる制度を認める。",
-    "feasibility": 3,
+    "description": "結婚後も姓を選べる制度を導入し、個人の尊厳と選択の自由を保障する。",
+    "feasibility": 2,
     "stance_points": [
-      { "stance_id": 1, "point": -1 },
+      { "stance_id": 1, "point": -2 },
       { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": -1 },
-      { "stance_id": 4, "point": 0 },
+      { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 0 },
       { "stance_id": 6, "point": 1 }
     ]
@@ -423,30 +423,30 @@
     "card_id": 27,
     "genre_id": 5,
     "policy_name": "差別禁止法制定",
-    "description": "差別禁止法を制定しLGBTの権利を守る。",
-    "feasibility": 4,
+    "description": "特定の民族や属性に対する憎悪表現を規制し、多様性を尊重する社会を築く。",
+    "feasibility": 1,
     "stance_points": [
       { "stance_id": 1, "point": -2 },
       { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": -1 },
-      { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": 0 },
-      { "stance_id": 6, "point": 2 }
+      { "stance_id": 4, "point": 1 },
+      { "stance_id": 5, "point": 1 },
+      { "stance_id": 6, "point": 0 }
     ]
   },
   {
     "expansion": 1,
     "card_id": 28,
     "genre_id": 5,
-    "policy_name": "クオータ制導入",
-    "description": "女性議員を一定数確保するクオータ制で女性の政治参加を保障する。",
-    "feasibility": 1,
+    "policy_name": "難民受け入れ枠の拡大",
+    "description": "(画像)国際基準に基づき、難民の受け入れ人数と保護制度を大幅に拡充する。",
+    "feasibility": 0,
     "stance_points": [
-      { "stance_id": 1, "point": -1 },
-      { "stance_id": 2, "point": 1 },
+      { "stance_id": 1, "point": -2 },
+      { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": -1 },
-      { "stance_id": 4, "point": 0 },
-      { "stance_id": 5, "point": 0 },
+      { "stance_id": 4, "point": 1 },
+      { "stance_id": 5, "point": 1 },
       { "stance_id": 6, "point": 1 }
     ]
   },
@@ -454,12 +454,12 @@
     "expansion": 1,
     "card_id": 29,
     "genre_id": 5,
-    "policy_name": "ハラスメント防止法導入",
-    "description": "職場などでのハラスメント防止を法制化する。",
+    "policy_name": "表現の自由の保障",
+    "description": "政治的干渉から独立した報道と、個人の表現の自由を守る法的枠組みを強化する。",
     "feasibility": 2,
     "stance_points": [
-      { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 2 },
+      { "stance_id": 1, "point": -1 },
+      { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": 0 },
       { "stance_id": 4, "point": 1 },
       { "stance_id": 5, "point": 0 },
@@ -471,7 +471,7 @@
     "card_id": 30,
     "genre_id": 5,
     "policy_name": "DV被害者支援",
-    "description": "シェルターや相談体制を強化する。",
+    "description": "相談窓口や避難施設、法的支援などを強化し、被害者の安全と回復を支援する。",
     "feasibility": 4,
     "stance_points": [
       { "stance_id": 1, "point": 0 },
