@@ -9,30 +9,30 @@
   {
     "segment_id": 2,
     "stance_id": 2,
-    "ratio": 10,
-    "description": "多様性や社会改革に関心。都市部や若年層に多い。",
-    "segment_color": "bg-purple-500"
-  },
-  {
-    "segment_id": 3,
-    "stance_id": 3,
     "ratio": 15,
     "description": "景気・雇用・税制に関心。企業寄りで現役世代中心。",
     "segment_color": "bg-green-500"
   },
   {
-    "segment_id": 4,
-    "stance_id": 4,
+    "segment_id": 3,
+    "stance_id": 3,
     "ratio": 20,
     "description": "医療・教育・子育て支援に関心。若年層と高齢者に多い。",
     "segment_color": "bg-yellow-400"
   },
   {
-    "segment_id": 5,
-    "stance_id": 5,
+    "segment_id": 4,
+    "stance_id": 4,
     "ratio": 5,
     "description": "脱炭素や自然保護を重視。若年層や意識の高い層に分布。",
     "segment_color": "bg-blue-500"
+  },
+  {
+    "segment_id": 5,
+    "stance_id": 5,
+    "ratio": 10,
+    "description": "多様性や社会改革に関心。都市部や若年層に多い。",
+    "segment_color": "bg-purple-500"
   },
   {
     "segment_id": 6,

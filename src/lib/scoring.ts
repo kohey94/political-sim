@@ -68,7 +68,7 @@ export function calculateScoreFromSegments(
     });
   }
 
-  if (feasibilitySum >= 20) {
+  if (feasibilitySum >= 18) {
     // 高実現性 → 支持率最大の層を判定して条件分岐
     const top = [...segmentScores].sort((a, b) => b.score - a.score)[0];
 
