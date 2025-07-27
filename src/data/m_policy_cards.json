@@ -184,7 +184,7 @@
     "feasibility": 0,
     "stance_points": [
       { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 0 },
+      { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": 4 },
       { "stance_id": 4, "point": 3 },
       { "stance_id": 5, "point": 4 },
@@ -378,7 +378,7 @@
     "feasibility": 0,
     "stance_points": [
       { "stance_id": 1, "point": 0 },
-      { "stance_id": 2, "point": 0 },
+      { "stance_id": 2, "point": 1 },
       { "stance_id": 3, "point": 4 },
       { "stance_id": 4, "point": 4 },
       { "stance_id": 5, "point": 4 },
@@ -474,7 +474,7 @@
     "description": "(画像)国際基準に基づき、難民の受け入れ人数と保護制度を大幅に拡充する。",
     "feasibility": 0,
     "stance_points": [
-      { "stance_id": 1, "point": 0 },
+      { "stance_id": 1, "point": 1 },
       { "stance_id": 2, "point": 2 },
       { "stance_id": 3, "point": 3 },
       { "stance_id": 4, "point": 1 },

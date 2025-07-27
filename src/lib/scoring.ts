@@ -38,7 +38,7 @@ export function calculateScoreFromSegments(
   let feasibilitySum = 0;
 
   for (const policy of policies) {
-    const weight = policy.id === mostImportantId ? 1.5 : 1.0;
+    const weight = policy.id === mostImportantId ? 2.0 : 1.0;
 
     for (const stanceIdStr in policy.impacts) {
       const stanceId = Number(stanceIdStr);
